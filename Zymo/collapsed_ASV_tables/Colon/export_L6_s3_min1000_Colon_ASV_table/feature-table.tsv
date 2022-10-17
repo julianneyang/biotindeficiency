@@ -1,0 +1,17 @@
+# Constructed from biom file
+#OTU ID	S191127.3.0.c	S191127.3.1.c	S191127.3.2.c	S191127.4.0.c	S191127.4.1.c	S191127.4.2.c	S191127.5.0.c	S191127.5.1.c	S191127.5.2.c	S191127.5.3.c	taxonomy
+k__Bacteria;p__Actinobacteria;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Coriobacteriaceae_UCG-002	548.0	560.0	1042.0	638.0	102.0	0.0	0.0	565.0	576.0	552.0
+k__Bacteria;p__Bacteroidetes;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides	2564.0	761.0	1114.0	2838.0	2294.0	3295.0	1717.0	2020.0	1275.0	1386.0
+k__Bacteria;p__Bacteroidetes;c__Bacteroidia;o__Bacteroidales;f__Muribaculaceae;g__	959.0	600.0	1089.0	718.0	0.0	423.0	742.0	568.0	839.0	752.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Clostridiaceae_1;g__Clostridium_sensu_stricto_13	0.0	0.0	0.0	0.0	0.0	0.0	299.0	267.0	0.0	428.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Clostridiales_vadinBB60_group;g__	0.0	445.0	0.0	415.0	0.0	0.0	569.0	415.0	0.0	369.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Lachnospiraceae;g__	0.0	622.0	0.0	0.0	0.0	0.0	584.0	0.0	450.0	0.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Lachnospiraceae;g__Lachnoclostridium	396.0	493.0	0.0	0.0	0.0	0.0	332.0	358.0	353.0	399.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Ruminococcaceae;g__Anaerotruncus	0.0	0.0	0.0	0.0	0.0	0.0	395.0	392.0	441.0	0.0
+k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Ruminococcaceae;g__Caproiciproducens	210.0	354.0	0.0	0.0	0.0	0.0	0.0	90.0	0.0	0.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__	613.0	436.0	803.0	645.0	593.0	268.0	548.0	940.0	565.0	320.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Dubosiella	673.0	891.0	835.0	741.0	72.0	560.0	632.0	661.0	724.0	687.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Erysipelatoclostridium	238.0	414.0	0.0	0.0	0.0	0.0	0.0	0.0	166.0	0.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Faecalibaculum	527.0	0.0	332.0	0.0	0.0	0.0	0.0	181.0	0.0	132.0
+k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Betaproteobacteriales;f__Burkholderiaceae;g__Parasutterella	875.0	338.0	795.0	514.0	505.0	223.0	463.0	580.0	515.0	406.0
+k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae;o__Verrucomicrobiales;f__Akkermansiaceae;g__Akkermansia	746.0	781.0	792.0	717.0	439.0	749.0	867.0	1034.0	776.0	1026.0

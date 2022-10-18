@@ -11,7 +11,6 @@ here::i_am("Biotin_Deficiency_RProj/Zymo_Alpha_Diversity.R")
 otus<- readr::read_delim("Zymo/alpha_diversity/alpha_ASV_table/otus_dir/alpha-diversity.tsv")
 row.names(otus) <- otus$...1
 shannon<-readr::read_delim("Zymo/alpha_diversity/alpha_ASV_table/shannon_dir/alpha-diversity.tsv")
-stool$Timepoint <- stool$`Timepoint `
 row.names(shannon) <- shannon$...1
 
 data<- merge(otus,shannon, by="...1")
@@ -30,7 +29,7 @@ colon <- data_meta %>% dplyr::filter(SampleType == "Colon")
 
 
 ### Function for plotting alpha diversity ---
-generate_UCI_adiv_plots <- function(input_data, X, Y, min, max){
+generate_Zymo_adiv_plots <- function(input_data, X, Y, min, max){
   #read in files
   data <- as.data.frame(input_data)
   
@@ -42,7 +41,7 @@ generate_UCI_adiv_plots <- function(input_data, X, Y, min, max){
   #graph plot
   ggplot(data=data,aes(x={{X}},y={{Y}}, fill=Diet)) + 
     geom_violin(alpha=0.25,position=position_dodge(width=75),size=1,color="black",draw_quantiles=c(0.5))+
-    scale_fill_viridis_d()+ +
+    scale_fill_viridis_d()+ 
     #geom_line(aes(group = MouseID,color=Genotype),size=1)+
     geom_point(size=2,position=position_jitter(width=0.25),alpha=1)+
     theme_cowplot(12) +
@@ -53,44 +52,41 @@ generate_UCI_adiv_plots <- function(input_data, X, Y, min, max){
 
 ### Make and store plots ---
 compare <-c(c("Control","BD"),c("Control","BD_supp")) 
-Zymo_tranversestool<- generate_UCI_adiv_plots(stool, Collection, shannon, 4, 8) + 
+Zymo_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, shannon, 4, 8) + facet_grid(~Collection)+
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
-Zymo_longitudinalstool_lines <- generate_UCI_adiv_plots(stool, Timepoint, shannon, 0, 7) + facet_grid(~Genotype) 
-ghintestines <- generate_UCI_adiv_plots(intestine, Genotype,shannon,0,7) +facet_grid(~Timepoint)
+Zymo_intestines <- generate_Zymo_adiv_plots(colon, Diet,shannon,4,8)
 
-otus_tranversestool<- generate_UCI_adiv_plots(stool, Genotype, observed_otus, 0, 400) +facet_grid(~Timepoint)
-otus_longitudinalstool_lines <- generate_UCI_adiv_plots(stool, Timepoint, observed_otus, 0, 400) + facet_grid(~Genotype) 
-otus_longitudinalstool <- generate_UCI_adiv_plots(stool, Timepoint, observed_otus, 0, 400) + facet_grid(~Genotype) 
-otus_intestines <- generate_UCI_adiv_plots(intestine, Genotype,observed_otus,0,400) +facet_grid(~Timepoint)
+Zymo_otus_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, observed_otus, 0, 400) +facet_grid(~Collection)
+Zymo_otus_intestines <- generate_Zymo_adiv_plots(colon, Diet,observed_otus,0,400) 
 
 ### Alpha Diversity Stats ---
 #stool
-stool$Genotype <-factor(stool$Genotype, levels=c("WT", "KO"))
-output <- lme(fixed= shannon ~ Timepoint*Genotype, random = ~1|MouseID, data=stool)
+stool$Diet <-factor(stool$Diet, levels=c("Control", "BD","BD_supp"))
+output <- lme(fixed= shannon ~ Collection*Diet, random = ~1|MouseID, data=stool)
 summary(output)
-output <- lme(fixed= observed_otus ~ Timepoint*Genotype, random = ~1|MouseID, data=stool)
+output <- lme(fixed= observed_otus ~ Collection*Diet, random = ~1|MouseID, data=stool)
 summary(output)
-output <- lme(fixed= shannon ~ Timepoint+Genotype, random = ~1|MouseID, data=stool)
+output <- lme(fixed= shannon ~ Collection+Diet, random = ~1|MouseID, data=stool)
 summary(output)
-output <- lme(fixed= observed_otus ~ Timepoint+Genotype, random = ~1|MouseID, data=stool)
+output <- lme(fixed= observed_otus ~ Collection+Diet, random = ~1|MouseID, data=stool)
 summary(output)
 
-stool_day0 <- stool %>% filter(Timepoint=="Day0")
-stool_day7 <- stool %>% filter(Timepoint=="Day7 ")
+stool_Week40 <- stool %>% filter(Collection=="Day0")
+stool_day7 <- stool %>% filter(Collection=="Day7 ")
 
-wilcox.test(shannon~Genotype,stool_day0)
-wilcox.test(shannon~Genotype,stool_day7)
-wilcox.test(observed_otus~Genotype,stool_day0)
-wilcox.test(observed_otus~Genotype,stool_day7)
+wilcox.test(shannon~Diet,stool_day0)
+wilcox.test(shannon~Diet,stool_day7)
+wilcox.test(observed_otus~Diet,stool_day0)
+wilcox.test(observed_otus~Diet,stool_day7)
 
-t.test(shannon~Genotype,stool_day0)
-t.test(shannon~Genotype,stool_day7)
-t.test(observed_otus~Genotype,stool_day0)
-t.test(observed_otus~Genotype,stool_day7)
+t.test(shannon~Diet,stool_day0)
+t.test(shannon~Diet,stool_day7)
+t.test(observed_otus~Diet,stool_day0)
+t.test(observed_otus~Diet,stool_day7)
 
 
 #intestine
-t.test(shannon~Genotype,intestine)
-t.test(observed_otus~Genotype,intestine)
-wilcox.test(observed_otus~Genotype,intestine)
-wilcox.test(shannon~Genotype,intestine)
+t.test(shannon~Diet,intestine)
+t.test(observed_otus~Diet,intestine)
+wilcox.test(observed_otus~Diet,intestine)
+wilcox.test(shannon~Diet,intestine)

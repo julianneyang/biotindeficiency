@@ -79,6 +79,31 @@ summary(output)
 output <- lme(fixed= observed_otus ~ Collection+Diet, random = ~1|MouseID, data=stool)
 summary(output)
 
+#control vs bd
+stool_Week4 <- stool %>% filter(Diet!="BD_supp") %>% filter(Collection=="Week4")
+stool_Week8 <- stool %>% filter(Diet!="BD_supp") %>% filter(Collection=="Week8")
+stool_Week12 <- stool %>% filter(Diet!="BD_supp") %>% filter(Collection=="Week12")
+
+t.test(shannon~Diet, stool_Week4)
+t.test(shannon~Diet, stool_Week8)
+t.test(shannon~Diet, stool_Week12)
+
+t.test(observed_otus~Diet, stool_Week4)
+t.test(observed_otus~Diet, stool_Week8)
+t.test(observed_otus~Diet, stool_Week12)
+
+#control vs bd_supp
+stool_Week4 <- stool %>% filter(Diet!="BD") %>% filter(Collection=="Week4")
+stool_Week8 <- stool %>% filter(Diet!="BD") %>% filter(Collection=="Week8")
+stool_Week12 <- stool %>% filter(Diet!="BD") %>% filter(Collection=="Week12")
+
+t.test(shannon~Diet, stool_Week4)
+t.test(shannon~Diet, stool_Week8)
+t.test(shannon~Diet, stool_Week12)
+
+t.test(observed_otus~Diet, stool_Week4)
+t.test(observed_otus~Diet, stool_Week8)
+t.test(observed_otus~Diet, stool_Week12)
 
 #intestine
 cvsbd <- colon %>% filter(Diet!="BD_supp")

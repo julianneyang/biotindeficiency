@@ -82,7 +82,7 @@ metadata = metadata[match(target, row.names(metadata)),]
 target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
-data.adonis=adonis(data.dist ~ Group, data=metadata, permutations=10000)
+data.adonis=adonis(data.dist ~ Sex+Group, data=metadata, permutations=10000)
 data.adonis$aov.tab
 
 # cecum

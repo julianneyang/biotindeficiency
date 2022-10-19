@@ -33,7 +33,11 @@ df_input_metadata$MouseID <- factor(df_input_metadata$MouseID)
 df_input_metadata$Genotype <- factor(df_input_metadata$Genotype, levels=c("WT","KO"))
 sapply(df_input_metadata,levels)
 
-fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, output = "UCI/intestines_L6_Maaslin2_Genotype", fixed_effects = c("Genotype"),normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, 
+                    output = "UCI/intestines_L6_Maaslin2_Genotype", 
+                    fixed_effects = c("Genotype"),
+                    min_prevalence = 0.375,
+                    normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
 
 # stool ---
 input_data <- read.csv("UCI/collapsed_ASV_tables/UCI L6 Tables - stool_L6.csv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
@@ -71,8 +75,18 @@ df_input_metadata$Genotype <- factor(df_input_metadata$Genotype, levels=c("WT","
 df_input_metadata$Timepoint <- factor(df_input_metadata$Timepoint, levels=c("Day0", "Day7 "))
 sapply(df_input_metadata,levels)
 
-fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, output = "UCI/stool_L6_Maaslin2_Timepoint_Genotype_1-MouseID", fixed_effects = c("Timepoint","Genotype"), random_effects=c("MouseID"),normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
-fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, output = "UCI/stool_L6_Maaslin2_Timepoint_Genotype_TimepointANDGenotype_1-MouseID", fixed_effects = c("Timepoint","Genotype","TimepointANDGenotype"), random_effects=c("MouseID"),normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, 
+                    output = "UCI/stool_L6_Maaslin2_Timepoint_Genotype_1-MouseID", 
+                    fixed_effects = c("Timepoint","Genotype"), 
+                    random_effects=c("MouseID"),
+                    min_prevalence = 0.375,
+                    normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+fit_data = Maaslin2(input_data=df_input_data, input_metadata=df_input_metadata, 
+                    output = "UCI/stool_L6_Maaslin2_Timepoint_Genotype_TimepointANDGenotype_1-MouseID", 
+                    fixed_effects = c("Timepoint","Genotype","TimepointANDGenotype"), 
+                    min_prevalence = 0.375,
+                    random_effects=c("MouseID"),
+                    normalization="TSS", transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
 
 ### Make a Dotplot ---
 # intestines ---
@@ -80,14 +94,21 @@ data<-read.table("UCI/intestines_L6_Maaslin2_Genotype/significant_results.tsv", 
 data <- data %>% filter(qval <0.05)
 data$Phylum <- gsub(".*p__","",data$feature)
 data$Phylum <- gsub("\\..*","",data$Phylum)
-data$feature <- gsub(".*g__","",data$feature)
+data$Family<- gsub(".*f__","",data$feature)
+data$Family <- gsub("\\..*","",data$Family)
+data$Genus<- gsub(".*g__","",data$feature)
+#data$Genus <- gsub("\\..*","",data$Genus)
+data <- data %>% mutate(feature = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
 
 #append relative abundance data 
 relA <- readRDS("UCI/collapsed_ASV_tables/Relative_Abundance-intestines-L6.RDS")
 relA$feature <- row.names(relA)
-relA$feature <- gsub(".*g__","",relA$feature)
-relA$feature <- gsub("-",".",relA$feature)
-
+relA$Family <- gsub(".*f__","",relA$feature)
+relA$Family <- gsub("-",".",relA$Family)
+relA$Family <- gsub(";.*","",relA$Family)
+relA$Genus <- gsub(".*g__","",relA$feature)
+relA$Genus <- gsub("-",".",relA$Genus)
+relA<- relA %>% mutate(feature = ifelse(relA$Genus=="", paste(relA$Family,"(f)"), relA$Genus))
 relA$Relative_Abundance<-relA$V1
 
 data<-merge(data,relA,by="feature")
@@ -101,14 +122,14 @@ data$feature= factor(as.character(data$feature), levels = names(y))
 ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
-                        limits=c(sqrt(0.0006),sqrt(0.15)),
-                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
-                        labels=c("0.0001","0.001","0.01","0.1")) + 
+                        limits=c(sqrt(0.000001),sqrt(0.15)),
+                        breaks=c(sqrt(0.00001),sqrt(0.0001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.00001","0.0001","0.01","0.1")) + 
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
   theme_cowplot(12) +
-  ggtitle("Enriched in WT     Enriched in KO") +
+  ggtitle("Intestines: Genus ~ Genotype") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
 
@@ -117,14 +138,22 @@ data<-read.table("UCI/stool_L6_Maaslin2_Timepoint_Genotype_1-MouseID/significant
 data <- data %>% filter(qval <0.05)
 data$Phylum <- gsub(".*p__","",data$feature)
 data$Phylum <- gsub("\\..*","",data$Phylum)
-data$feature <- gsub(".*g__","",data$feature)
+data$Family<- gsub(".*f__","",data$feature)
+data$Family <- gsub("\\..*","",data$Family)
+data$Genus<- gsub(".*g__","",data$feature)
+#data$Genus <- gsub("\\..*","",data$Genus)
+data <- data %>% mutate(feature = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
+
 
 #append relative abundance data 
 relA <- readRDS("UCI/collapsed_ASV_tables/Relative_Abundance-stool-L6.RDS")
 relA$feature <- row.names(relA)
-relA$feature <- gsub(".*g__","",relA$feature)
-relA$feature <- gsub("-",".",relA$feature)
-
+relA$Family <- gsub(".*f__","",relA$feature)
+relA$Family <- gsub("-",".",relA$Family)
+relA$Family <- gsub(";.*","",relA$Family)
+relA$Genus <- gsub(".*g__","",relA$feature)
+relA$Genus <- gsub("-",".",relA$Genus)
+relA<- relA %>% mutate(feature = ifelse(relA$Genus=="", paste(relA$Family,"(f)"), relA$Genus))
 relA$Relative_Abundance<-relA$V1
 
 data<-merge(data,relA,by="feature")

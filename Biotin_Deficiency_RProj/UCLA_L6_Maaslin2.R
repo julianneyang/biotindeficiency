@@ -61,6 +61,8 @@ run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_file
 ### Make a Dotplot ---
 phyla_colors <- c("#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3")
 names(phyla_colors)<-unique(data$Phylum)
+
+readr::write_rds(phyla_colors, "UCLA/phylacolors.RDS")
 # stool
 data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
@@ -255,3 +257,4 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   ggtitle("SI luminal: Genus ~ Sex + Diet") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+

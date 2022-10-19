@@ -60,6 +60,174 @@ DietBD            -2.59146  4.847366  9  -0.534613  0.6059
 DietBD_supp        2.30020  4.762068  9   0.483025  0.6406
 ```
 
+### T-test: Control vs BD
+Shannon
+```R
+> t.test(shannon~Diet, stool_Week4)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = 2.9326, df = 4.4973, p-value = 0.037
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.05168021 1.05823380
+sample estimates:
+mean in group Control      mean in group BD 
+             2.552583              1.997626 
+
+> t.test(shannon~Diet, stool_Week8)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = 3.5848, df = 5.6641, p-value = 0.01277
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.1589683 0.8749996
+sample estimates:
+mean in group Control      mean in group BD 
+             2.634586              2.117602 
+
+> t.test(shannon~Diet, stool_Week12)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = 2.3194, df = 3.3134, p-value = 0.09484
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.2270324  1.7328492
+sample estimates:
+mean in group Control      mean in group BD 
+             3.357101              2.604192 
+```
+Observed OTUs
+```R
+> t.test(observed_otus~Diet, stool_Week4)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = 1.4947, df = 4.5826, p-value = 0.2004
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -8.319434 29.986101
+sample estimates:
+mean in group Control      mean in group BD 
+             41.33333              30.50000 
+
+> t.test(observed_otus~Diet, stool_Week8)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = 5.6373, df = 4.0461, p-value = 0.004709
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  6.371202 18.628798
+sample estimates:
+mean in group Control      mean in group BD 
+                 40.5                  28.0 
+
+> t.test(observed_otus~Diet, stool_Week12)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = 0.98931, df = 4.4039, p-value = 0.3737
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -6.68887 14.52220
+sample estimates:
+mean in group Control      mean in group BD 
+             44.25000              40.33333 
+```
+
+### T-Test: Control vs BD_supp
+Shannon
+```R
+> t.test(shannon~Diet, stool_Week4)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = 1.6884, df = 4.4946, p-value = 0.1587
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1837808  0.8225472
+sample estimates:
+mean in group Control mean in group BD_supp 
+             2.552583              2.233200 
+
+> t.test(shannon~Diet, stool_Week8)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = -1.7844, df = 5.79, p-value = 0.1264
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.7601806  0.1222873
+sample estimates:
+mean in group Control mean in group BD_supp 
+             2.634586              2.953533 
+
+> t.test(shannon~Diet, stool_Week12)
+
+	Welch Two Sample t-test
+
+data:  shannon by Diet
+t = -0.35525, df = 4.0637, p-value = 0.7401
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1.0716775  0.8272094
+sample estimates:
+mean in group Control mean in group BD_supp 
+             3.357101              3.479335 
+```
+OTUs
+```R
+> t.test(observed_otus~Diet, stool_Week4)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = 0.81801, df = 4.8699, p-value = 0.4515
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -13.73008  26.39675
+sample estimates:
+mean in group Control mean in group BD_supp 
+             41.33333              35.00000 
+
+> t.test(observed_otus~Diet, stool_Week8)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = -6.0614, df = 3.9947, p-value = 0.003756
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -20.051479  -7.448521
+sample estimates:
+mean in group Control mean in group BD_supp 
+                40.50                 54.25 
+
+> t.test(observed_otus~Diet, stool_Week12)
+
+	Welch Two Sample t-test
+
+data:  observed_otus by Diet
+t = -1.3373, df = 4.9522, p-value = 0.2393
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -26.350127   8.350127
+sample estimates:
+mean in group Control mean in group BD_supp 
+                44.25                 53.25 
+```
+
 # Colon
 ### T-Test: Control vs BD
 ```R

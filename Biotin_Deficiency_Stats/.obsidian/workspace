@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Zymo_Archive/Beta Diversity.md",
+            "file": "Zymo_2.0/Alpha Diversity.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Zymo_Archive/Beta Diversity.md",
+                "file": "Zymo_2.0/Alpha Diversity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Zymo_Archive/Beta Diversity.md",
+                "file": "Zymo_2.0/Alpha Diversity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Zymo_Archive/Beta Diversity.md"
+                "file": "Zymo_2.0/Alpha Diversity.md"
               }
             }
           }
@@ -130,13 +130,13 @@
   },
   "active": "af795d3f2cd09ecc",
   "lastOpenFiles": [
+    "Zymo_Archive/Beta Diversity.md",
     "Zymo_Archive/Alpha Diversity.md",
     "Zymo_2.0/Beta Diversity.md",
     "Zymo_2.0/Alpha Diversity.md",
     "UCI/Beta Diversity.md",
     "UCLA/Alpha Diversity.md",
     "UCLA/Beta Diversity.md",
-    "Zymo_Archive/Beta Diversity.md",
     "UCI/Alpha Diversity.md"
   ]
 }

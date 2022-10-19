@@ -35,17 +35,18 @@ Saved FeatureTable[Frequency] to: adherent_cecum_ASV.qza
 
 ### Calculate alpha diversity for each subset
 ```shell
-(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA/SampleType_Subsets$ bash ../../../scripts/rarefy_alpha_diversity.sh Stool_Pellet_ASV.qza 15735
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA$ bash ../../scripts/rarefy_alpha_diversity.sh ASV.qza 15735
 Call bash rarefy_alpha_diversity.sh table.qza sampling_depth_integer
-Saved FeatureTable[Frequency] to: d15735_Stool_Pellet_ASV.qza
-Saved SampleData[AlphaDiversity] to: alpha_Stool_Pellet_ASV/shannon.qza
-Saved SampleData[AlphaDiversity] to: alpha_Stool_Pellet_ASV/chao1.qza
-Saved SampleData[AlphaDiversity] to: alpha_Stool_Pellet_ASV/otus.qza
-Saved SampleData[AlphaDiversity] to: alpha_Stool_Pellet_ASV/pielou_e.qza
+Saved FeatureTable[Frequency] to: d15735_ASV.qza
+Saved SampleData[AlphaDiversity] to: alpha_ASV/shannon.qza
+Saved SampleData[AlphaDiversity] to: alpha_ASV/chao1.qza
+Saved SampleData[AlphaDiversity] to: alpha_ASV/otus.qza
+Saved SampleData[AlphaDiversity] to: alpha_ASV/pielou_e.qza
 Exported chao1.qza as AlphaDiversityDirectoryFormat to directory chao1_dir
 Exported otus.qza as AlphaDiversityDirectoryFormat to directory otus_dir
 Exported pielou_e.qza as AlphaDiversityDirectoryFormat to directory pielou_e_dir
 Exported shannon.qza as AlphaDiversityDirectoryFormat to directory shannon_dir
+
 ```
 ### Filter to features observed in at least 3 mice 
 ```shell

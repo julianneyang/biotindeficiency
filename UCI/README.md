@@ -1,3 +1,23 @@
+### Collapse taxa on unfiltered ASV table
+```shell
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCI/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh intestine_min_10000_Skupsky_UCI_ASV_nofood.qza ../starting_files/taxonomy.qza
+Saved FeatureTable[Frequency] to: L1_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L2_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L3_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L4_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L5_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L6_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L7_intestine_min_10000_Skupsky_UCI_ASV_nofood.qza
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCI/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh stool_min_10000_Skupsky_UCI_ASV_nofood.qza ../starting_files/taxonomy.qza
+Saved FeatureTable[Frequency] to: L1_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L2_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L3_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L4_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L5_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L6_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+Saved FeatureTable[Frequency] to: L7_stool_min_10000_Skupsky_UCI_ASV_nofood.qza
+
+```
 ```shell
 (qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCI$ bash ../../scripts/1-qiime-tools-import.sh Skupsky_UCI_ASV_nofood.tsv 
 Enter filepath to tsv containing ASV count data Skupsky_UCI_ASV_nofood.tsv

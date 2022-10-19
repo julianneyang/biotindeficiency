@@ -1,0 +1,14 @@
+metadata	feature	value	coef	stderr	N	N.not.0	pval	qval
+Diet	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Enterobacter	BD	1.28594010300556	0.100265813231689	11	0	1.28942787118725e-06	7.22079607864859e-05
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__Clostridium	BD_supp	0.486792432661862	0.095199972718079	11	0	0.000914637233914862	0.0193735920438761
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Blautia	BD	1.54471000180045	0.308235543969676	11	0	0.0010378710023505	0.0193735920438761
+Diet	k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Enterococcaceae.g__Enterococcus	BD	1.19905711074114	0.279709484807123	11	0	0.00266289513195091	0.0372805318473128
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Robinsoniella	BD	0.887098547179105	0.243531691013905	11	0	0.00656383784650641	0.0735149838808718
+Diet	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides	BD	0.505381710894276	0.169820551252714	11	0	0.0177088655665299	0.11112466861332
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Family.XIII.g__NA	BD	-1.60229903649119	0.539415910567213	11	0	0.0178593217414265	0.11112466861332
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Lachnoclostridium	BD	0.81449516385927	0.2681344017666	11	0	0.0161210803252209	0.11112466861332
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Anaerotruncus	BD_supp	1.01718413130949	0.326822295635782	11	0	0.0143943180930007	0.11112466861332
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Anaerostipes	BD	0.569966663979604	0.19745172738459	11	0	0.0203044130374388	0.113704713009657
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Lachnoclostridium	BD_supp	0.688034234468323	0.248244218596007	11	0	0.0242366617901146	0.123386641840584
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium	BD	-0.92334878944906	0.350949811167819	11	0	0.0301313864136126	0.140613136596859
+Diet	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Alistipes	BD	-1.09237249259366	0.464964346567797	11	0	0.0467273128980713	0.201286886330153

@@ -24,3 +24,14 @@ The institution refers to the institution that created the sequencing libraries.
 - DADA2 in R library(dada2)
 - Used Silva v132 trained on 16S for species assignment
 
+### Analysis Details for all datasets
+- Datasets were rarefied and used for alpha diversity 
+- Datasets split into subsets of each sample type
+  - These subsets were utilized as is for collapsing to higher order phylogeny 
+- Subsets were prevalence filtered to number of samples matching 3 mice 
+- RPCA performed on prevalence filtered subsets 
+- L6 count table used as input for fitting linear models with Maaslin2 on log-transformed, TSS- normalized data.
+  -Genera were first prevalence filtered to number of samples matching 3 mice (built into Maaslin2 with min_prevalence)
+  -Only Genera which are q<0.05 shown in dotplots. 
+  -Relative abundance is relative to the data subset.
+

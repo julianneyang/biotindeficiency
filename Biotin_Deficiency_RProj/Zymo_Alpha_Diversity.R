@@ -8,15 +8,15 @@ library(ggpubr)
 setwd("C:/Users/Jacobs Laboratory/Documents/JCYang/Biotin Deficiency 2022 Final/")
 here::i_am("Biotin_Deficiency_RProj/Zymo_Alpha_Diversity.R")
 
-otus<- readr::read_delim("Zymo/alpha_diversity/alpha_ASV_table/otus_dir/alpha-diversity.tsv")
+otus<- readr::read_delim("Zymo_2.0/alpha_diversity/alpha_ASV/otus_dir/alpha-diversity.tsv")
 row.names(otus) <- otus$...1
-shannon<-readr::read_delim("Zymo/alpha_diversity/alpha_ASV_table/shannon_dir/alpha-diversity.tsv")
+shannon<-readr::read_delim("Zymo_2.0/alpha_diversity/alpha_ASV/shannon_dir/alpha-diversity.tsv")
 row.names(shannon) <- shannon$...1
 
 data<- merge(otus,shannon, by="...1")
 data$SampleID <- data$...1
 
-metadata<- read.csv("Zymo/starting_files/Metadata.csv", header = TRUE, row.names=1)
+metadata<- read.delim("Zymo_2.0/starting_files/Metadata.tsv", header = TRUE, row.names=1)
 metadata$SampleID <- row.names(metadata)
 data_meta <- merge(data,metadata, by="SampleID")
 
@@ -52,12 +52,20 @@ generate_Zymo_adiv_plots <- function(input_data, X, Y, min, max){
 
 ### Make and store plots ---
 compare <-c(c("Control","BD"),c("Control","BD_supp")) 
-Zymo_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, shannon, 4, 8) + facet_grid(~Collection)+
+max(stool$shannon)
+Zymo_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, shannon, 0,5.5) + facet_grid(~Collection)+
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
-Zymo_intestines <- generate_Zymo_adiv_plots(colon, Diet,shannon,4,8)
+Zymo_tranversestool
+max(colon$shannon)
+Zymo_intestines <- generate_Zymo_adiv_plots(colon, Diet,shannon,0,5.5)
+Zymo_intestines
 
-Zymo_otus_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, observed_otus, 0, 400) +facet_grid(~Collection)
-Zymo_otus_intestines <- generate_Zymo_adiv_plots(colon, Diet,observed_otus,0,400) 
+max(stool$observed_otus)
+Zymo_otus_tranversestool<- generate_Zymo_adiv_plots(stool, Diet, observed_otus, 0, 150) +facet_grid(~Collection)
+Zymo_otus_tranversestool
+max(colon$observed_otus)
+Zymo_otus_intestines <- generate_Zymo_adiv_plots(colon, Diet,observed_otus,0,75) 
+Zymo_otus_intestines
 
 ### Alpha Diversity Stats ---
 #stool
@@ -71,22 +79,16 @@ summary(output)
 output <- lme(fixed= observed_otus ~ Collection+Diet, random = ~1|MouseID, data=stool)
 summary(output)
 
-stool_Week40 <- stool %>% filter(Collection=="Day0")
-stool_day7 <- stool %>% filter(Collection=="Day7 ")
-
-wilcox.test(shannon~Diet,stool_day0)
-wilcox.test(shannon~Diet,stool_day7)
-wilcox.test(observed_otus~Diet,stool_day0)
-wilcox.test(observed_otus~Diet,stool_day7)
-
-t.test(shannon~Diet,stool_day0)
-t.test(shannon~Diet,stool_day7)
-t.test(observed_otus~Diet,stool_day0)
-t.test(observed_otus~Diet,stool_day7)
-
 
 #intestine
-t.test(shannon~Diet,intestine)
-t.test(observed_otus~Diet,intestine)
-wilcox.test(observed_otus~Diet,intestine)
-wilcox.test(shannon~Diet,intestine)
+cvsbd <- colon %>% filter(Diet!="BD_supp")
+t.test(shannon~Diet,cvsbd)
+t.test(observed_otus~Diet,cvsbd)
+wilcox.test(observed_otus~Diet,cvsbd)
+wilcox.test(shannon~Diet,cvsbd)
+
+cvsbds <- colon %>% filter(Diet!="BD")
+t.test(shannon~Diet,cvsbds)
+t.test(observed_otus~Diet,cvsbds)
+wilcox.test(observed_otus~Diet,cvsbds)
+wilcox.test(shannon~Diet,cvsbds)

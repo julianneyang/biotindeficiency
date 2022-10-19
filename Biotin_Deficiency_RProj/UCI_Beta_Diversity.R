@@ -44,27 +44,35 @@ generate_UCI_longitudinal_pcoA_plots <- function(ordination_file, metadata, titl
   p<- ggplot(data, aes(x=PC1, y=PC2, colour={{colorvariable}},shape= Timepoint)) + 
     geom_point(size=3) + 
     scale_colour_manual(name="",values={{colorvector}}) +
-    scale_shape_manual(name="", values=c(16,10)) +
+    scale_shape_manual(name="", values=c(10,16)) +
     #scale_color_viridis_d()+
     xlab(str_PC1) +
     ylab(str_PC2) +
     theme_cowplot(12)+
     theme(legend.position="top",legend.justification = "center") +
     #geom_line(aes(group = MouseID),color="darkgrey", arrow = arrow(type = "closed",length=unit(0.075, "inches")))+
-    geom_point(aes(x = PC1, y = PC2, shape = Timepoint), size = 3) + 
-    geom_path(aes(x = PC1, y = PC2, group = MouseID), arrow = arrow(length = unit(0.55, "cm")))
+    #geom_point(aes(x = PC1, y = PC2, shape = Timepoint), size = 3) + 
+    #geom_path(aes(x = PC1, y = PC2, group = MouseID), arrow = arrow(length = unit(0.55, "cm")))
     #coord_fixed(ratio=1/2)+
     labs(title= paste0({{title}})) 
   p
 }
-metadata <- read.table("Humanized Metadata.tsv.txt", sep="\t", header=TRUE)
-names(metadata)
+
 genotype_cols<- c("KO" = "red", "WT" = "black")
 timepoint_cols<- c("Day0" = "red", "Day7 " = "black")
 
 stool_rpca<- generate_UCI_longitudinal_pcoA_plots("UCI/beta_diversity/stool_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Stool", Genotype,genotype_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(plot.title = element_text(hjust = 0.5))
+stool_rpca
+
+stool_arrow_rpca<- generate_UCI_longitudinal_pcoA_plots("UCI/beta_diversity/stool_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Stool", Genotype,genotype_cols)+
+  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  geom_line(aes(group = MouseID),color="darkgrey", arrow = arrow(type = "closed",length=unit(0.075, "inches")))+
+  geom_point(aes(x = PC1, y = PC2, shape = Timepoint), size = 3) + 
+  geom_path(aes(x = PC1, y = PC2, group = MouseID), arrow = arrow(length = unit(0.55, "cm")))
+stool_arrow_rpca
 
 generate_UCI_cs_pcoA_plots <- function(ordination_file, metadata, title, colorvariable,colorvector){
   data<-read.csv(ordination_file, header=FALSE)

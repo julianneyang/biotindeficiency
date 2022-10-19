@@ -1,0 +1,25 @@
+Num samples: 10
+Num observations: 5
+Total count: 66951
+Table density (fraction of non-zero values): 0.960
+
+Counts/sample summary:
+ Min: 4005.000
+ Max: 8349.000
+ Median: 6748.500
+ Mean: 6695.100
+ Std. dev.: 1174.990
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+S191127.4.1.c: 4005.000
+S191127.4.2.c: 5518.000
+S191127.5.3.c: 6457.000
+S191127.5.2.c: 6680.000
+S191127.3.1.c: 6695.000
+S191127.3.2.c: 6802.000
+S191127.5.0.c: 7148.000
+S191127.4.0.c: 7226.000
+S191127.5.1.c: 8071.000
+S191127.3.0.c: 8349.000

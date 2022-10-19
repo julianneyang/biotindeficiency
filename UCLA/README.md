@@ -1,3 +1,40 @@
+### Redo collapse taxa for Maaslin2
+```shell
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh SI_adherent_ASV.qza ../starting_files/taxonomy.qza 
+Saved FeatureTable[Frequency] to: L1_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L2_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L3_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L4_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L5_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L6_SI_adherent_ASV.qza
+Saved FeatureTable[Frequency] to: L7_SI_adherent_ASV.qza
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh adherent_cecum_ASV.qza ../starting_files/taxonomy.qza 
+Saved FeatureTable[Frequency] to: L1_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L2_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L3_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L4_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L5_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L6_adherent_cecum_ASV.qza
+Saved FeatureTable[Frequency] to: L7_adherent_cecum_ASV.qza
+
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh SI_luminal_ASV.qza ../starting_files/taxonomy.qza
+Saved FeatureTable[Frequency] to: L1_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L2_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L3_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L4_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L5_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L6_SI_luminal_ASV.qza
+Saved FeatureTable[Frequency] to: L7_SI_luminal_ASV.qza
+(qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA/SampleType_Subsets$ bash ../../../scripts/collapse-taxa.sh Stool_Pellet_ASV.qza ../starting_files/taxonomy.qza
+Saved FeatureTable[Frequency] to: L1_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L2_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L3_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L4_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L5_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L6_Stool_Pellet_ASV.qza
+Saved FeatureTable[Frequency] to: L7_Stool_Pellet_ASV.qza
+
+```
 ### Read in ASV table
 ```shell
 (qiime2-2019.10) qiime2@qiime2core2019-10:/media/sf_ZhouYi/Shared_Folder/Julianne_SLCCre/Biotin Deficiency 2022 Final/UCLA$ bash ../../scripts/1-qiime-tools-import.sh Skupsky_Sept2021_ASV_count_table.tsv 

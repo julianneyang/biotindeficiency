@@ -1,0 +1,23 @@
+Num samples: 8
+Num observations: 9
+Total count: 1114220
+Table density (fraction of non-zero values): 0.819
+
+Counts/sample summary:
+ Min: 100191.000
+ Max: 209942.000
+ Median: 133870.000
+ Mean: 139277.500
+ Std. dev.: 35844.515
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+KO2_R1R3TK28_d7_COLON: 100191.000
+WT3_L1TK41_d7_COLON: 101591.000
+WT2_L1TK28_D7_COLON: 110502.000
+WT4_R1TK44_d7_COLON: 128789.000
+KO3_L3TK40_d7_COLON: 138951.000
+WT1_R3TK43_d7_COLON: 148808.000
+KO1_R3L1TK43_d7_COLON: 175446.000
+KO4_TK44L1_d7_COLON: 209942.000

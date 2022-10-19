@@ -1,0 +1,11 @@
+# Constructed from biom file
+#OTU ID	WT1_R3TK43_d7_COLON	WT2_L1TK28_D7_COLON	WT3_L1TK41_d7_COLON	WT4_R1TK44_d7_COLON	KO1_R3L1TK43_d7_COLON	KO2_R1R3TK28_d7_COLON	KO3_L3TK40_d7_COLON	KO4_TK44L1_d7_COLON	taxonomy
+k__Bacteria;p__Actinobacteria	557.0	661.0	244.0	1027.0	149.0	93.0	9.0	266.0
+k__Bacteria;p__Bacteroidetes	48270.0	40284.0	16095.0	26239.0	76482.0	55221.0	37349.0	64765.0
+k__Bacteria;p__Cyanobacteria	10.0	0.0	6.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Deferribacteres	5.0	83.0	14064.0	0.0	21.0	2.0	0.0	0.0
+k__Bacteria;p__Epsilonbacteraeota	3306.0	3327.0	4299.0	3931.0	27502.0	8774.0	54844.0	81453.0
+k__Bacteria;p__Firmicutes	95125.0	64862.0	64584.0	91288.0	50404.0	34456.0	29910.0	51387.0
+k__Bacteria;p__Proteobacteria	1479.0	1149.0	629.0	1100.0	15542.0	1106.0	16332.0	12064.0
+k__Bacteria;p__Tenericutes	48.0	125.0	1665.0	5204.0	5.0	0.0	0.0	7.0
+k__Bacteria;p__Verrucomicrobia	8.0	11.0	5.0	0.0	5341.0	539.0	507.0	0.0

@@ -1,0 +1,18 @@
+# Constructed from biom file
+#OTU ID	WT1_R3TK43_d0_STOOL	WT1_R3TK43_d7_STOOL	WT2_L1TK28_d0_STOOL	WT2_L1TK28_D7_STOOL	WT3_L1TK41_d0_STOOL	WT3_L1TK41_d7_STOOL	WT4_R1TK44_d0_STOOL	WT4_R1TK44_d7_STOOL	KO1_R3L1TK43_d0_STOOL	KO1_R3L1TK43_d7_STOOL	KO2_R1R3TK28_d0_STOOL	KO2_R1R3TK28_d7_STOOL	KO3_L3TK40_d0_STOOL	KO3_L3TK40_d7_STOOL	KO4_TK44L1_d0_STOOL	KO4_TK44L1_d7_STOOL	taxonomy
+k__Bacteria;p__Actinobacteria;c__Actinobacteria	662.0	1194.0	1462.0	902.0	2078.0	1353.0	16.0	952.0	302.0	722.0	1002.0	1678.0	648.0	81.0	8.0	257.0
+k__Bacteria;p__Actinobacteria;c__Coriobacteriia	1017.0	522.0	1056.0	492.0	569.0	769.0	1667.0	549.0	971.0	184.0	2947.0	1058.0	733.0	184.0	296.0	1403.0
+k__Bacteria;p__Bacteroidetes;c__Bacteroidia	40541.0	43902.0	31965.0	36114.0	47695.0	31952.0	57775.0	32481.0	39797.0	5300.0	53090.0	42982.0	74098.0	57273.0	33823.0	56791.0
+k__Bacteria;p__Cyanobacteria;c__Melainabacteria	16.0	5.0	0.0	0.0	0.0	9.0	51.0	55.0	20.0	0.0	0.0	0.0	0.0	0.0	17.0	0.0
+k__Bacteria;p__Deferribacteres;c__Deferribacteres	0.0	0.0	0.0	0.0	110.0	19.0	2.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Epsilonbacteraeota;c__Campylobacteria	151.0	224.0	131.0	73.0	175.0	78.0	99.0	484.0	992.0	4593.0	1155.0	366.0	1009.0	7448.0	85.0	2878.0
+k__Bacteria;p__Firmicutes;c__	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	3.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Firmicutes;c__Bacilli	2017.0	13224.0	35479.0	25947.0	37173.0	12570.0	43463.0	16808.0	24814.0	12346.0	42164.0	34237.0	28398.0	5264.0	11914.0	17352.0
+k__Bacteria;p__Firmicutes;c__Clostridia	11731.0	8709.0	34460.0	22515.0	13766.0	7627.0	44053.0	7891.0	13907.0	13085.0	47795.0	18373.0	14911.0	32451.0	28152.0	7016.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia	46880.0	38316.0	21020.0	10855.0	58360.0	32089.0	9529.0	44034.0	16983.0	64833.0	31749.0	17986.0	36519.0	32638.0	1639.0	35153.0
+k__Bacteria;p__Patescibacteria;c__Saccharimonadia	0.0	0.0	5.0	0.0	0.0	0.0	6.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria	21.0	8.0	0.0	0.0	26.0	13.0	7.0	0.0	9.0	0.0	0.0	88.0	40.0	545.0	0.0	65.0
+k__Bacteria;p__Proteobacteria;c__Deltaproteobacteria	126.0	20.0	212.0	311.0	79.0	23.0	307.0	27.0	570.0	7.0	854.0	49.0	105.0	160.0	76.0	0.0
+k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria	627.0	370.0	340.0	96.0	1854.0	509.0	147.0	244.0	122.0	47.0	304.0	2326.0	3125.0	9679.0	93.0	13407.0
+k__Bacteria;p__Tenericutes;c__Mollicutes	474.0	44.0	108.0	61.0	500.0	913.0	1060.0	329.0	581.0	0.0	262.0	0.0	161.0	0.0	280.0	26.0
+k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae	278.0	130.0	0.0	0.0	206.0	11.0	0.0	0.0	41.0	36.0	0.0	0.0	50.0	2587.0	0.0	0.0

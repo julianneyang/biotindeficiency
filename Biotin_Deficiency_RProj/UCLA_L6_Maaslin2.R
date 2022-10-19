@@ -59,7 +59,9 @@ run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - SI_adherent.csv","UCLA/starting_fil
 run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_files/Metadata.tsv","SI_luminal")
 
 ### Make a Dotplot ---
-# stool: 0 genera significant---
+phyla_colors <- c("#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3")
+names(phyla_colors)<-unique(data$Phylum)
+# stool
 data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
@@ -92,9 +94,10 @@ data$feature= factor(as.character(data$feature), levels = names(y))
 ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
-                        limits=c(sqrt(0.0001),sqrt(0.03)),
-                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01)),
-                        labels=c("0.0001","0.001","0.01")) + 
+                        limits=c(sqrt(0.0001),sqrt(0.3)),
+                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.0001","0.001","0.01","0.1")) + 
+  scale_color_manual(name="Phylum", values = phyla_colors)+
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
@@ -103,8 +106,8 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
 
-# stool, Timepoint+Genotype ---
-data<-read.table("Zymo/stool_L6_Maaslin2_Collection_Diet_1-MouseID/significant_results.tsv", sep="\t",header=TRUE)
+# Cecum
+data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
@@ -112,11 +115,11 @@ data$Phylum <- gsub("\\..*","",data$Phylum)
 data$Family<- gsub(".*f__","",data$feature)
 data$Family <- gsub("\\..*","",data$Family)
 data$Genus<- gsub(".*g__","",data$feature)
-data$Genus <- gsub("\\..*","",data$Genus)
+#data$Genus <- gsub("\\..*","",data$Genus)
 data <- data %>% mutate(feature = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
 
 #append relative abundance data 
-relA <- readRDS("Zymo/collapsed_ASV_tables/Relative_Abundance-stool-L6.RDS")
+relA <- readRDS("UCLA/collapsed_ASV_tables/Relative_Abundance-Cecum-L6.RDS")
 relA$feature <- row.names(relA)
 relA$Family <- gsub(".*f__","",relA$feature)
 relA$Family <- gsub("-",".",relA$Family)
@@ -127,32 +130,128 @@ relA<- relA %>% mutate(feature = ifelse(relA$Genus=="", paste(relA$Family,"(f)")
 relA$Relative_Abundance<-relA$V1
 
 data<-merge(data,relA,by="feature")
-max(data$Relative_Abundance)
 min(data$Relative_Abundance)
-
-
+max(data$Relative_Abundance)
 #make graph
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = value)) + 
+ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
-                        limits=c(sqrt(0.01),sqrt(0.33)),
-                        breaks=c(sqrt(0.01),sqrt(0.1),sqrt(0.3)),
-                        labels=c("0.01","0.10","0.30")) + 
+                        limits=c(sqrt(0.0001),sqrt(0.3)),
+                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.0001","0.001","0.01","0.1")) + 
+  scale_color_manual(name="Phylum", values = phyla_colors)+
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
   theme_cowplot(12) +
-  ggtitle("Stool: Genus ~ Timepoint + Genotype") +
+  ggtitle("Cecum: Genus ~ Sex + Diet") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
 
-# stool, Timepoint*Genotype ---
-data<-read.table("UCI/stool_L6_Maaslin2_Timepoint_Genotype_TimepointANDGenotype_1-MouseID/all_results.tsv", header=TRUE)
+# SI adherent
+data<-read.table("UCLA/SI_adherent_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
 data$Phylum <- gsub("\\..*","",data$Phylum)
-data$feature <- gsub(".*g__","",data$feature)
-# no features are significant
+data$Order<- gsub(".*o__","",data$feature)
+data$Order <- gsub("\\..*","",data$Order)
+data$Family<- gsub(".*f__","",data$feature)
+data$Family <- gsub("\\..*","",data$Family)
+data$Genus<- gsub(".*g__","",data$feature)
+#data$Genus <- gsub("\\..*","",data$Genus)
+data <- data %>% mutate(feature1 = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
+data <- data %>% mutate(feature = ifelse(data$feature1==" (f)", paste(data$Order,"(o)"), data$feature1))
+
+#append relative abundance data 
+relA <- readRDS("UCLA/collapsed_ASV_tables/Relative_Abundance-SI_adherent-L6.RDS")
+relA$feature <- row.names(relA)
+relA$Order <- gsub(".*o__","",relA$feature)
+relA$Order <- gsub("-",".",relA$Order)
+relA$Order <- gsub(";.*","",relA$Order)
+relA$Family <- gsub(".*f__","",relA$feature)
+relA$Family <- gsub("-",".",relA$Family)
+relA$Family <- gsub(";.*","",relA$Family)
+relA$Genus <- gsub(".*g__","",relA$feature)
+relA$Genus <- gsub("-",".",relA$Genus)
+relA<- relA %>% mutate(feature1 = ifelse(relA$Genus=="", paste(relA$Family,"(f)"), relA$Genus))
+relA<- relA %>% mutate(feature = ifelse(relA$feature1==" (f)", paste(relA$Order,"(o)"), relA$feature1))
+relA$Relative_Abundance<-relA$V1
+
+data<-merge(data,relA,by="feature")
+min(data$Relative_Abundance)
+max(data$Relative_Abundance)
+#make graph
+y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
+y = sort(y, FALSE)   #switch to TRUE to reverse direction
+data$feature= factor(as.character(data$feature), levels = names(y))
+ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+  geom_point(aes(size = sqrt(Relative_Abundance))) + 
+  scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
+                        limits=c(sqrt(0.0001),sqrt(0.3)),
+                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.0001","0.001","0.01","0.1")) + 
+  scale_color_manual(name="Phylum", values = phyla_colors)+
+  geom_vline(xintercept = 0) + 
+  xlab(label="Log2 Fold Change")+
+  ylab(label=NULL)+
+  theme_cowplot(12) +
+  ggtitle("SI adherent: Genus ~ Sex + Diet") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+
+
+# SI luminal
+data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Diet")
+data$Phylum <- gsub(".*p__","",data$feature)
+data$Phylum <- gsub("\\..*","",data$Phylum)
+data$Order<- gsub(".*o__","",data$feature)
+data$Order <- gsub("\\..*","",data$Order)
+data$Family<- gsub(".*f__","",data$feature)
+data$Family <- gsub("\\..*","",data$Family)
+data$Genus<- gsub(".*g__","",data$feature)
+#data$Genus <- gsub("\\..*","",data$Genus)
+data <- data %>% mutate(feature1 = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
+data <- data %>% mutate(feature = ifelse(data$feature1==" (f)", paste(data$Order,"(o)"), data$feature1))
+
+#append relative abundance data 
+relA <- readRDS("UCLA/collapsed_ASV_tables/Relative_Abundance-SI_luminal-L6.RDS")
+relA$feature <- row.names(relA)
+relA$Order <- gsub(".*o__","",relA$feature)
+relA$Order <- gsub("-",".",relA$Order)
+relA$Order <- gsub(";.*","",relA$Order)
+relA$Family <- gsub(".*f__","",relA$feature)
+relA$Family <- gsub("-",".",relA$Family)
+relA$Family <- gsub(";.*","",relA$Family)
+relA$Genus <- gsub(".*g__","",relA$feature)
+relA$Genus <- gsub("-",".",relA$Genus)
+relA<- relA %>% mutate(feature1 = ifelse(relA$Genus=="", paste(relA$Family,"(f)"), relA$Genus))
+relA<- relA %>% mutate(feature = ifelse(relA$feature1==" (f)", paste(relA$Order,"(o)"), relA$feature1))
+relA$Relative_Abundance<-relA$V1
+
+data<-merge(data,relA,by="feature")
+min(data$Relative_Abundance)
+max(data$Relative_Abundance)
+#make graph
+y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
+y = sort(y, FALSE)   #switch to TRUE to reverse direction
+data$feature= factor(as.character(data$feature), levels = names(y))
+ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+  geom_point(aes(size = sqrt(Relative_Abundance))) + 
+  scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
+                        limits=c(sqrt(0.0001),sqrt(0.3)),
+                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.0001","0.001","0.01","0.1")) + 
+  scale_color_manual(name="Phylum", values = phyla_colors)+
+  geom_vline(xintercept = 0) + 
+  xlab(label="Log2 Fold Change")+
+  ylab(label=NULL)+
+  theme_cowplot(12) +
+  ggtitle("SI luminal: Genus ~ Sex + Diet") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 

@@ -1,0 +1,142 @@
+{
+  "main": {
+    "id": "457af8d3b0e42e43",
+    "type": "split",
+    "children": [
+      {
+        "id": "af795d3f2cd09ecc",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Zymo_Archive/Beta Diversity.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8f78e19976981756",
+    "type": "split",
+    "children": [
+      {
+        "id": "f77dbe25d63af68c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "48de6fbcbcc08716",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "0f75412c1b6481ad",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "af4e5911df0fb91d",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7fed7881cbcb3680",
+    "type": "split",
+    "children": [
+      {
+        "id": "16f450173285766f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1d0b1ad17a8be89d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Zymo_Archive/Beta Diversity.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4e1e3346561e9b9e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Zymo_Archive/Beta Diversity.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3787230d97800dfa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "75df1fdfdb00ee7b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Zymo_Archive/Beta Diversity.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "af795d3f2cd09ecc",
+  "lastOpenFiles": [
+    "Zymo_Archive/Alpha Diversity.md",
+    "Zymo_2.0/Beta Diversity.md",
+    "Zymo_2.0/Alpha Diversity.md",
+    "UCI/Beta Diversity.md",
+    "UCLA/Alpha Diversity.md",
+    "UCLA/Beta Diversity.md",
+    "Zymo_Archive/Beta Diversity.md",
+    "UCI/Alpha Diversity.md"
+  ]
+}

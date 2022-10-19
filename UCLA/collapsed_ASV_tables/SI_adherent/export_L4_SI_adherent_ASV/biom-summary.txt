@@ -1,0 +1,32 @@
+Num samples: 17
+Num observations: 25
+Total count: 814296
+Table density (fraction of non-zero values): 0.485
+
+Counts/sample summary:
+ Min: 19789.000
+ Max: 95421.000
+ Median: 45741.000
+ Mean: 47899.765
+ Std. dev.: 17490.546
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+SK66: 19789.000
+SK56: 26303.000
+SK59: 33574.000
+SK67: 33963.000
+SK68: 37510.000
+SK61: 37741.000
+SK63: 41121.000
+SK70: 42465.000
+SK57: 45741.000
+SK62: 47089.000
+SK69: 49185.000
+SK65: 53387.000
+SK60: 57874.000
+SK64: 59746.000
+SK72: 63837.000
+SK58: 69550.000
+SK71: 95421.000

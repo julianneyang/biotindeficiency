@@ -1,0 +1,16 @@
+# Constructed from biom file
+#OTU ID	SK39	SK40	SK41	SK42	SK43	SK44	SK45	SK46	SK47	SK48	SK49	SK50	SK51	SK52	SK53	SK54	SK55	taxonomy
+k__Bacteria;p__Actinobacteria;c__Actinobacteria	22.0	28.0	0.0	0.0	0.0	16.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Actinobacteria;c__Coriobacteriia	114.0	2569.0	931.0	2621.0	429.0	1042.0	1435.0	924.0	429.0	587.0	1120.0	233.0	508.0	18.0	29.0	504.0	162.0
+k__Bacteria;p__Bacteroidetes;c__Bacteroidia	1110.0	4948.0	17581.0	6926.0	5574.0	8584.0	6382.0	7145.0	4395.0	14886.0	4195.0	1360.0	872.0	223.0	80.0	8088.0	1138.0
+k__Bacteria;p__Cyanobacteria;c__Oxyphotobacteria	163.0	0.0	0.0	0.0	4.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Epsilonbacteraeota;c__Campylobacteria	0.0	301.0	0.0	0.0	9.0	70.0	0.0	9.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Firmicutes;c__Bacilli	22699.0	1282.0	4683.0	1518.0	1637.0	1714.0	2293.0	1094.0	956.0	1015.0	5786.0	8963.0	14125.0	50940.0	16100.0	5553.0	8066.0
+k__Bacteria;p__Firmicutes;c__Clostridia	1854.0	4552.0	4706.0	3188.0	1194.0	5287.0	3638.0	2319.0	1294.0	4354.0	860.0	693.0	1704.0	77.0	389.0	2350.0	840.0
+k__Bacteria;p__Firmicutes;c__Erysipelotrichia	4510.0	9108.0	11887.0	5538.0	3545.0	11962.0	7551.0	33964.0	14170.0	20074.0	11769.0	13173.0	11386.0	1448.0	1979.0	8258.0	2653.0
+k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria	93.0	160.0	652.0	322.0	119.0	285.0	302.0	3.0	3.0	0.0	53.0	5.0	4.0	330.0	0.0	124.0	6.0
+k__Bacteria;p__Proteobacteria;c__Deltaproteobacteria	34.0	256.0	582.0	113.0	78.0	303.0	372.0	2100.0	297.0	1554.0	1301.0	79.0	180.0	8.0	16.0	184.0	32.0
+k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria	232.0	6275.0	2161.0	4810.0	720.0	1576.0	2327.0	878.0	2168.0	1085.0	1332.0	1075.0	673.0	2067.0	933.0	5092.0	7167.0
+k__Bacteria;p__Spirochaetes;c__Spirochaetia	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+k__Bacteria;p__Verrucomicrobia;c__Verrucomicrobiae	1246.0	38186.0	10890.0	14953.0	5513.0	12436.0	9774.0	20486.0	24026.0	16100.0	18026.0	12222.0	9447.0	815.0	391.0	13744.0	4594.0
+k__Eukaryota;p__;c__	5108.0	203.0	15.0	0.0	465.0	171.0	101.0	11.0	36.0	0.0	46.0	0.0	44.0	343.0	159.0	21.0	22.0

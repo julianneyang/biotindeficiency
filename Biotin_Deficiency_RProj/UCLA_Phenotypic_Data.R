@@ -8,7 +8,7 @@ library(ggpubr)
 setwd("C:/Users/Jacobs Laboratory/Documents/JCYang/Biotin Deficiency 2022 Final/")
 here::i_am("Biotin_Deficiency_RProj/UCLA_Weights_and_Calprotectin.R")
 
-# Aggregate alppha diversity and metadata
+# Read in pheno data
 data<- read.csv("UCLA/Phenotypic_Data_UCLA.csv", header = TRUE, row.names=1)
 
 #declare order of variables

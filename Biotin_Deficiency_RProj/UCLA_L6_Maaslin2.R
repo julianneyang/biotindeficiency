@@ -6,8 +6,18 @@ library(cowplot)
 library(plyr)
 setwd("C:/Users/Jacobs Laboratory/Documents/JCYang/Biotin Deficiency 2022 Final/")
 
+### Read in histo phenotypic data and merge with metadata 
+input_metadata <-read.delim("UCLA/starting_files/Metadata.tsv",sep="\t",header=TRUE, row.names=1) #mapping file
+data<- read.csv("UCLA/Phenotypic_Data_UCLA.csv", header = TRUE)
+data$Mouse.ID <- data$MouseID
+data<-select(data,-c("Group", "MouseID"))
+input_metadata <- merge(input_metadata,data,by="Mouse.ID")
+row.names(input_metadata) <-input_metadata$Description
+
+write.table(input_metadata, "UCLA/starting_files/Histo_Metadata.tsv", sep="\t")
+
 ### Run Maaslin2 and get table of relative abundances
-# Stool ---
+
 run_Maaslin2 <- function(counts_filepath, metadata_filepath, subset_string) {
 #input_data <- read.csv("UCLA/collapsed_ASV_tables/L6 - Stool.csv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
 input_data <- read.csv(counts_filepath, header=TRUE, row.names=1) # choose filtered non rarefied csv file
@@ -25,7 +35,7 @@ Relative_Abundance <- as.data.frame(t(Relative_Abundance))
 
 readr::write_rds(Relative_Abundance,paste0("UCLA/collapsed_ASV_tables/Relative_Abundance-",subset_string,"-L6.RDS"))
 
-input_metadata <-read.delim(metadata_filepath,sep="\t",header=TRUE, row.names=1) #mapping file
+input_metadata <-read.delim(metadata_filepath,sep="\t",header=TRUE, row.names=1)
 
 target <- colnames(df_input_data)
 input_metadata = input_metadata[match(target, row.names(input_metadata)),]
@@ -46,6 +56,8 @@ fit_data = Maaslin2(input_data=df_input_data,
                     transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
 }
 
+## Sex and Diet only 
+
 # stool 
 run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - Stool.csv","UCLA/starting_files/Metadata.tsv","Stool")
 
@@ -58,11 +70,83 @@ run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - SI_adherent.csv","UCLA/starting_fil
 # SI luminal
 run_Maaslin2("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_files/Metadata.tsv","SI_luminal")
 
-### Make a Dotplot ---
+## Sex, Diet, and Histo 
+run_Maaslin2_histo <- function(counts_filepath, metadata_filepath, subset_string, select_string) {
+  #input_data <- read.csv("UCLA/collapsed_ASV_tables/L6 - Stool.csv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
+  input_data <- read.csv(counts_filepath, header=TRUE, row.names=1) # choose filtered non rarefied csv file
+  
+  
+  df_input_data <- as.data.frame(input_data)
+  df_input_data <- select(df_input_data, -c("taxonomy"))
+  
+  #input_metadata <-read.delim("UCLA/starting_files/Histo_Metadata.tsv",sep="\t",header=TRUE, row.names=1)
+  
+  input_metadata <-read.delim(metadata_filepath,sep="\t",header=TRUE, row.names=1)
+  
+  target <- colnames(df_input_data)
+  input_metadata = input_metadata[match(target, row.names(input_metadata)),]
+  print(target == row.names(input_metadata))
+  
+  df_input_metadata<-input_metadata
+  df_input_metadata$Mouse.ID <- factor(df_input_metadata$Mouse.ID)
+  df_input_metadata$Diet <- factor(df_input_metadata$Group, levels=c("Control","BD"))
+  df_input_metadata$Sex <- factor(df_input_metadata$Sex)
+  sapply(df_input_metadata,levels)
+  
+  ?Maaslin2
+  if(select_string=="sex_diet_histo"){
+  fit_data = Maaslin2(input_data=df_input_data, 
+                      input_metadata=df_input_metadata, 
+                      output = paste0("UCLA/",subset_string,"_L6_Maaslin2_Sex_Diet_Histology"), 
+                      fixed_effects = c("Sex","Diet", "Histology"),normalization="TSS", 
+                      min_prevalence = 0.1875,
+                      transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+  }
+  if(select_string=="sex_histo"){
+    fit_data = Maaslin2(input_data=df_input_data, 
+                        input_metadata=df_input_metadata, 
+                        output = paste0("UCLA/",subset_string,"_L6_Maaslin2_Sex_Histology"), 
+                        fixed_effects = c("Sex", "Histology"),normalization="TSS", 
+                        min_prevalence = 0.1875,
+                        transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+  }
+  if(select_string=="histo"){
+    fit_data = Maaslin2(input_data=df_input_data, 
+                        input_metadata=df_input_metadata, 
+                        output = paste0("UCLA/",subset_string,"_L6_Maaslin2_Histology"), 
+                        fixed_effects = c("Histology"),normalization="TSS", 
+                        min_prevalence = 0.1875,
+                        transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+  }
+}
+
+# stool 
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - Stool.csv","UCLA/starting_files/Histo_Metadata.tsv","Stool", "sex_diet_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - Stool.csv","UCLA/starting_files/Histo_Metadata.tsv","Stool", "sex_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - Stool.csv","UCLA/starting_files/Histo_Metadata.tsv","Stool", "histo")
+
+# cecum 
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - adherent_cecum.csv","UCLA/starting_files/Histo_Metadata.tsv","Cecum", "sex_diet_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - adherent_cecum.csv","UCLA/starting_files/Histo_Metadata.tsv","Cecum", "sex_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - adherent_cecum.csv","UCLA/starting_files/Histo_Metadata.tsv","Cecum", "histo")
+
+# SI adherent 
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_adherent.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_adherent", "sex_diet_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_adherent.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_adherent", "sex_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_adherent.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_adherent", "histo")
+
+# SI luminal
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_luminal", "sex_diet_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_luminal", "sex_histo")
+run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/starting_files/Histo_Metadata.tsv","SI_luminal", "histo")
+
+### Make a Dotplot: Sex and Diet  ---
+
 phyla_colors <- c("#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3")
 names(phyla_colors)<-unique(data$Phylum)
 
 readr::write_rds(phyla_colors, "UCLA/phylacolors.RDS")
+
 # stool
 data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
@@ -258,3 +342,56 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
 
+### Make a Dotplot: Sex, Diet, and Histo  ---
+
+# stool
+data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Diet_Histology/all_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+data<-read.table("UCLA/Stool_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+# Cecum
+data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Diet_Histology/all_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 4 taxa, Klebsiella, Ruminiclostridium_5, Lactobacillus, Lachnospiraceae
+
+data<-read.table("UCLA/Cecum_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 2 taxa, Klebsiella and Ruminiclostridium_5
+
+# SI adherent
+data<-read.table("UCLA/SI_adherent_L6_Maaslin2_Sex_Diet_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa
+
+data<-read.table("UCLA/SI_adherent_L6_Maaslin2_Sex_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa
+
+data<-read.table("UCLA/SI_adherent_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+# SI luminal
+data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Sex_Diet_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 0 taxa 
+
+data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Sex_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 1 taxa Catabacter
+
+data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
+data <- data %>% filter(qval <0.05)
+data <- data %>% filter(metadata=="Histology") # 1 taxa Catabacter

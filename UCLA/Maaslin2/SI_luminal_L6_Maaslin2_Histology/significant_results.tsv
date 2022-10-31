@@ -1,0 +1,16 @@
+metadata	feature	value	coef	stderr	N	N.not.0	pval	qval
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Christensenellaceae.g__Catabacter	Histology	0.503516118531465	0.0783850616447406	17	0	1.590762056702e-05	0.000747658166649942
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Caproiciproducens	Histology	-0.46827012045217	0.138527705785778	17	0	0.00448494890471834	0.0702641995072539
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium_5	Histology	-0.317178617578666	0.0891479648367796	17	0	0.00315116901841644	0.0702641995072539
+Histology	k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Erysipelatoclostridium	Histology	-0.440794960576447	0.136355643237985	17	0	0.00601640204820578	0.070692724066418
+Histology	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Klebsiella	Histology	0.58249431347132	0.194286758782993	17	0	0.0095872389809529	0.0901200464209573
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiales_vadinBB60_group.g__	Histology	-0.287562640838272	0.11332897260677	17	0	0.0236882881900217	0.171120854081963
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__	Histology	-0.281430516754735	0.112589976691282	17	0	0.0254860846505052	0.171120854081963
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__	Histology	-0.429086120229755	0.177041778455098	17	0	0.029500805987395	0.173317235175946
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Anaerotruncus	Histology	-0.458930941429194	0.21165835297396	17	0	0.047859039692064	0.204488624138819
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium_9	Histology	-0.190984076925302	0.0871137236911983	17	0	0.0457510509800772	0.204488624138819
+Histology	k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__	Histology	-0.281638043274964	0.129601453491617	17	0	0.0474278765905983	0.204488624138819
+Histology	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Alistipes	Histology	0.287365498854145	0.140989934178089	17	0	0.0608838513118191	0.221870592779289
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Lachnospiraceae_UCG.006	Histology	-0.223367820593795	0.109823847024551	17	0	0.0613684618325693	0.221870592779289
+Histology	k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Histology	0.352536240975975	0.181656749088662	17	0	0.0727077228347004	0.227817531548728
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Family_XIII.g__	Histology	-0.308157528144983	0.15776568434342	17	0	0.0710720948385104	0.227817531548728

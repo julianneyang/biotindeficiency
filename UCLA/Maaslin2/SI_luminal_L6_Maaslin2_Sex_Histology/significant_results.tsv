@@ -1,0 +1,13 @@
+metadata	feature	value	coef	stderr	N	N.not.0	pval	qval
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Christensenellaceae.g__Catabacter	Histology	0.503849108131602	0.0807497993833067	17	0	3.02131075339342e-05	0.00284003210818982
+Sex	k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Faecalibaculum	Male	-1.5004005662543	0.333947660332984	17	0	0.000605080232114681	0.02843877090939
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium_5	Histology	-0.318610197856033	0.0822703539436148	17	0	0.00192293405688478	0.0602519337823899
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Caproiciproducens	Histology	-0.468578019567466	0.143474886397758	17	0	0.00613723443733214	0.126788982775425
+Histology	k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Erysipelatoclostridium	Histology	-0.441073849281224	0.141268791192523	17	0	0.00809291379417607	0.126788982775425
+Histology	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Klebsiella	Histology	0.579681821291172	0.183689235714961	17	0	0.00758682047780097	0.126788982775425
+Sex	k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Atopobiaceae.g__Olsenella	Male	-0.981709726331922	0.354530700078729	17	0	0.0159468093691604	0.156035730883981
+Sex	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae_1.g__Clostridium_sensu_stricto_18	Male	-0.60087880426813	0.216458001997397	17	0	0.0157371715117537	0.156035730883981
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__	Histology	-0.283431828156731	0.100759823906927	17	0	0.0146618183599678	0.156035730883981
+Sex	k__Bacteria.p__Proteobacteria.c__Deltaproteobacteria.o__Desulfovibrionales.f__Desulfovibrionaceae.g__Desulfovibrio	Male	-1.06559387211759	0.387763503151524	17	0	0.0165995458387214	0.156035730883981
+Sex	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Tannerellaceae.g__Parabacteroides	Male	-0.979670328620058	0.363339359434444	17	0	0.0183229216638641	0.156577694218475
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiales_vadinBB60_group.g__	Histology	-0.28750049425694	0.117597859159522	17	0	0.0295010721050739	0.231091731489746

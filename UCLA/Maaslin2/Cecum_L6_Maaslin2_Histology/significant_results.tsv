@@ -1,0 +1,7 @@
+metadata	feature	value	coef	stderr	N	N.not.0	pval	qval
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium_5	Histology	-0.617359563804735	0.152766508465071	17	0	0.00121399198073008	0.0385701344131563
+Histology	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Klebsiella	Histology	0.786004473323788	0.205850121430846	17	0	0.00188146997137348	0.0385701344131563
+Histology	k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Histology	0.508588257834535	0.157238901293534	17	0	0.00599480273256034	0.0819289706783246
+Histology	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Muribaculaceae.g__	Histology	-0.254211058663519	0.0951055866638787	17	0	0.0181951992653191	0.163997768129132
+Histology	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Caproiciproducens	Histology	-0.426311339637945	0.168457684097365	17	0	0.023999673384751	0.163997768129132
+Histology	k__Bacteria.p__Verrucomicrobia.c__Verrucomicrobiae.o__Verrucomicrobiales.f__Akkermansiaceae.g__Akkermansia	Histology	-0.142946173572664	0.0548137610829342	17	0	0.0206591168025777	0.163997768129132

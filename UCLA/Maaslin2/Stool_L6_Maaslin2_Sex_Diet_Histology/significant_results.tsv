@@ -1,0 +1,17 @@
+metadata	feature	value	coef	stderr	N	N.not.0	pval	qval
+Diet	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Klebsiella	BD	2.52488774562459	0.234027660785397	16	0	3.44452367670117e-07	4.03009270174036e-05
+Sex	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__	Male	0.74047918374787	0.125427362530772	16	0	0.000102573380482714	0.00400036183882586
+Sex	k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Klebsiella	Male	-0.908211087800501	0.147756539394814	16	0	7.24142638607207e-05	0.00400036183882586
+Sex	k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Rikenellaceae_RC9_gut_group	Male	1.16305509541443	0.216353799203511	16	0	0.000224819337678752	0.00657596562710349
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium_5	BD	-1.77646335247704	0.355582225711085	16	0	0.00040512316250689	0.00947988200266122
+Sex	k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Enterococcaceae.g__Enterococcus	Male	0.638164643295159	0.152390884613598	16	0	0.00151676199504765	0.0253515933457964
+Sex	k__Bacteria.p__Proteobacteria.c__Deltaproteobacteria.o__Desulfovibrionales.f__Desulfovibrionaceae.g__Bilophila	Male	0.558820856977644	0.131561743423136	16	0	0.00137126836595598	0.0253515933457964
+Diet	k__Bacteria.p__Firmicutes.c__Bacilli.o__Bacillales.f__Staphylococcaceae.g__Staphylococcus	BD	1.85008457924347	0.489780262414146	16	0	0.00306096927229805	0.0447666756073589
+Sex	k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rhodospirillales.f__.g__	Male	1.44231312839809	0.398399511267993	16	0	0.00402457412912064	0.0523194636785683
+Sex	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae_1.g__Clostridium_sensu_stricto_18	Male	-0.34660693084227	0.101016241512897	16	0	0.00561115488392559	0.0656505121419294
+Sex	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Family_XIII.g__	Male	1.19036857220775	0.389928083088915	16	0	0.0109925886744869	0.116921170446815
+Diet	k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	BD	1.14826448100067	0.382874147710777	16	0	0.0121000420063857	0.117975409562261
+Sex	k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Atopobiaceae.g__Coriobacteriaceae_UCG.002	Male	1.04992331982991	0.368741658456737	16	0	0.0158728159330803	0.132651390297885
+Diet	k__Bacteria.p__Verrucomicrobia.c__Verrucomicrobiae.o__Verrucomicrobiales.f__Akkermansiaceae.g__Akkermansia	BD	-0.146296766215756	0.050927680974143	16	0	0.0151697773945824	0.132651390297885
+Sex	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Blautia	Male	0.30929016559344	0.117849633064849	16	0	0.0236402999894127	0.184394339917419
+Diet	k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Caproiciproducens	BD	-0.779916227278255	0.319892991322452	16	0	0.0329361786755621	0.240845806565048

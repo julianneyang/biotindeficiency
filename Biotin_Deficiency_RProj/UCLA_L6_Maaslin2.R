@@ -173,6 +173,7 @@ relA$Relative_Abundance<-relA$V1
 data<-merge(data,relA,by="feature")
 min(data$Relative_Abundance)
 max(data$Relative_Abundance)
+
 #make graph
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
@@ -362,9 +363,49 @@ data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Diet_Histology/all_results.tsv", he
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Histology") # 0 taxa 
 
-data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Histology/significant_results.tsv", header=TRUE)
+data<-read.table("UCLA/Maaslin2/Cecum_L6_Maaslin2_Sex_Histology/all_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Histology") # 4 taxa, Klebsiella, Ruminiclostridium_5, Lactobacillus, Lachnospiraceae
+data$Phylum <- gsub(".*p__","",data$feature)
+data$Phylum <- gsub("\\..*","",data$Phylum)
+data$Family<- gsub(".*f__","",data$feature)
+data$Family <- gsub("\\..*","",data$Family)
+data$Genus<- gsub(".*g__","",data$feature)
+#data$Genus <- gsub("\\..*","",data$Genus)
+data <- data %>% mutate(feature = ifelse(data$Genus=="", paste(data$Family,"(f)"), data$Genus))
+
+#append relative abundance data 
+relA <- readRDS("UCLA/collapsed_ASV_tables/Relative_Abundance-Cecum-L6.RDS")
+relA$feature <- row.names(relA)
+relA$Family <- gsub(".*f__","",relA$feature)
+relA$Family <- gsub("-",".",relA$Family)
+relA$Family <- gsub(";.*","",relA$Family)
+relA$Genus <- gsub(".*g__","",relA$feature)
+relA$Genus <- gsub("-",".",relA$Genus)
+relA<- relA %>% mutate(feature = ifelse(relA$Genus=="", paste(relA$Family,"(f)"), relA$Genus))
+relA$Relative_Abundance<-relA$V1
+
+data<-merge(data,relA,by="feature")
+min(data$Relative_Abundance)
+max(data$Relative_Abundance)
+#make graph
+y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
+y = sort(y, FALSE)   #switch to TRUE to reverse direction
+data$feature= factor(as.character(data$feature), levels = names(y))
+ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+  geom_point(aes(size = sqrt(Relative_Abundance))) + 
+  scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
+                        limits=c(sqrt(0.0001),sqrt(0.3)),
+                        breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                        labels=c("0.0001","0.001","0.01","0.1")) + 
+  scale_color_manual(name="Phylum", values = phyla_colors)+
+  geom_vline(xintercept = 0) + 
+  xlab(label="Log2 Fold Change")+
+  ylab(label=NULL)+
+  theme_cowplot(12) +
+  ggtitle("Cecum: Genus ~ Sex + Histology") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
 
 data<-read.table("UCLA/Cecum_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)

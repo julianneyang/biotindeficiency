@@ -1,0 +1,5 @@
+index,k__Bacteria;p__Actinobacteria,k__Bacteria;p__Bacteroidetes,k__Bacteria;p__Cyanobacteria,k__Bacteria;p__Deferribacteres,k__Bacteria;p__Epsilonbacteraeota,k__Bacteria;p__Firmicutes,k__Bacteria;p__Patescibacteria,k__Bacteria;p__Proteobacteria,k__Bacteria;p__Tenericutes,k__Bacteria;p__Verrucomicrobia
+WT_Day7,1158.0,34461.0,11.0,1772.0,1967.0,69712.0,0.0,752.0,1053.0,21.0
+KO_Day7,769.0,49568.0,0.0,3.0,23484.0,57232.0,0.0,8935.0,5.0,1127.0
+WT_Day0,2137.0,44530.0,17.0,28.0,140.0,89608.0,4.0,942.0,538.0,121.0
+KO_Day0,1733.0,50243.0,10.0,0.0,811.0,74859.0,2.0,1328.0,323.0,23.0

@@ -1,5 +1,11 @@
 # biotindeficiency
-Scripts used in biotin deficiency project
+Scripts used in biotin deficiency project. 
+- Raw FastQ files can be found in NCBI with accession PRJNA904819 
+- Please cite: 
+  -MDPI and ACS Style
+Yang, J.C.; Jacobs, J.P.; Hwang, M.; Sabui, S.; Liang, F.; Said, H.M.; Skupsky, J. Biotin Deficiency Induces Intestinal Dysbiosis Associated with an Inflammatory Bowel Disease-like Phenotype. Nutrients 2023, 15, 264. https://doi.org/10.3390/nu15020264
+  -AMA Style
+Yang JC, Jacobs JP, Hwang M, Sabui S, Liang F, Said HM, Skupsky J. Biotin Deficiency Induces Intestinal Dysbiosis Associated with an Inflammatory Bowel Disease-like Phenotype. Nutrients. 2023; 15(2):264. https://doi.org/10.3390/nu15020264
 
 ### Three datasets used in this project
 The institution refers to the institution that created the sequencing libraries.

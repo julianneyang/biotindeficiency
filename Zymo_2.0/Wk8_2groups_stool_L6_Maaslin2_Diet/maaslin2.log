@@ -1,0 +1,57 @@
+2022-11-14 20:49:16 INFO::Writing function arguments to log file
+2022-11-14 20:49:16 DEBUG::Function arguments
+2022-11-14 20:49:16 DEBUG::Output folder: Zymo_2.0/Wk8_2groups_stool_L6_Maaslin2_Diet
+2022-11-14 20:49:16 DEBUG::Min Abundance: 0.000000
+2022-11-14 20:49:16 DEBUG::Min Prevalence: 0.273000
+2022-11-14 20:49:16 DEBUG::Normalization: TSS
+2022-11-14 20:49:16 DEBUG::Transform: LOG
+2022-11-14 20:49:16 DEBUG::Analysis method: LM
+2022-11-14 20:49:16 DEBUG::Max significance: 0.250000
+2022-11-14 20:49:16 DEBUG::Random effects:
+2022-11-14 20:49:16 DEBUG::Fixed effects: Diet
+2022-11-14 20:49:16 DEBUG::Correction method: BH
+2022-11-14 20:49:16 DEBUG::Standardize: TRUE
+2022-11-14 20:49:16 DEBUG::Cores: 1
+2022-11-14 20:49:16 INFO::Verifying options selected are valid
+2022-11-14 20:49:16 INFO::Determining format of input files
+2022-11-14 20:49:16 INFO::Input format is data samples as columns and metadata samples as rows
+2022-11-14 20:49:16 DEBUG::Transformed data so samples are rows
+2022-11-14 20:49:16 DEBUG::A total of 12 samples were found in both the data and metadata
+2022-11-14 20:49:16 DEBUG::Reordering data/metadata to use same sample ordering
+2022-11-14 20:49:16 INFO::Formula for fixed effects: expr ~  Diet
+2022-11-14 20:49:16 INFO::Running selected normalization method: TSS
+2022-11-14 20:49:16 INFO::Filter data based on min abundance and min prevalence
+2022-11-14 20:49:16 INFO::Total samples in data: 12
+2022-11-14 20:49:16 INFO::Min samples required with min abundance for a feature not to be filtered: 3.276000
+2022-11-14 20:49:16 INFO::Total filtered features: 20
+2022-11-14 20:49:16 INFO::Filtered feature names: k__Bacteria.p__Actinobacteria.c__Actinobacteria.o__Propionibacteriales.f__Propionibacteriaceae.g__Propionibacterium, k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriaceae.g__Adlercreutzia.Asaccharobacter, k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriaceae.g__Enterorhabdus, k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriaceae.g__Parvibacter, k__Bacteria.p__Firmicutes.c__Bacilli.o__Bacillales.f__Staphylococcaceae.g__Staphylococcus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Acetatifactor, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Roseburia, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Peptostreptococcaceae.g__Paeniclostridium, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Peptostreptococcaceae.g__Romboutsia, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Oscillibacter, k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__NA, k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter, k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rhodospirillales.f__Rhodospirillaceae.g__Thalassospira, k__Bacteria.p__Proteobacteria.c__Betaproteobacteria.o__Neisseriales.f__Neisseriaceae.g__NA, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Enterobacter, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacteriales.f__Enterobacteriaceae.g__Raoultella, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Vibrionales.f__Vibrionaceae.g__Vibrio, k__Bacteria.p__Tenericutes.c__Mollicutes.o__Anaeroplasmatales.f__Anaeroplasmataceae.g__Anaeroplasma, k__Bacteria.p__Tenericutes.c__Mollicutes.o__NA.f__NA.g__NA
+2022-11-14 20:49:16 INFO::Applying z-score to standardize continuous metadata
+2022-11-14 20:49:16 INFO::Running selected transform method: LOG
+2022-11-14 20:49:16 INFO::Running selected analysis method: LM
+2022-11-14 20:49:16 INFO::Fitting model to feature number 1, k__Bacteria.p__Actinobacteria.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriaceae.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 2, k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides
+2022-11-14 20:49:16 INFO::Fitting model to feature number 3, k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__NA.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 4, k__Bacteria.p__Bacteroidetes.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Alistipes
+2022-11-14 20:49:16 INFO::Fitting model to feature number 5, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Enterococcaceae.g__Enterococcus
+2022-11-14 20:49:16 INFO::Fitting model to feature number 6, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Streptococcaceae.g__Streptococcus
+2022-11-14 20:49:16 INFO::Fitting model to feature number 7, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__Clostridium
+2022-11-14 20:49:16 INFO::Fitting model to feature number 8, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Family.XIII.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 9, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Anaerostipes
+2022-11-14 20:49:16 INFO::Fitting model to feature number 10, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Blautia
+2022-11-14 20:49:16 INFO::Fitting model to feature number 11, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Lachnoclostridium
+2022-11-14 20:49:16 INFO::Fitting model to feature number 12, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Marvinbryantia
+2022-11-14 20:49:16 INFO::Fitting model to feature number 13, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 14, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Robinsoniella
+2022-11-14 20:49:16 INFO::Fitting model to feature number 15, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Lachnospiraceae.g__Tyzzerella
+2022-11-14 20:49:16 INFO::Fitting model to feature number 16, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__NA.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 17, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Anaerotruncus
+2022-11-14 20:49:16 INFO::Fitting model to feature number 18, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__NA
+2022-11-14 20:49:16 INFO::Fitting model to feature number 19, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Ruminococcaceae.g__Ruminiclostridium
+2022-11-14 20:49:16 INFO::Fitting model to feature number 20, k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Allobaculum
+2022-11-14 20:49:16 INFO::Fitting model to feature number 21, k__Bacteria.p__Firmicutes.c__Erysipelotrichia.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Erysipelatoclostridium
+2022-11-14 20:49:16 INFO::Fitting model to feature number 22, k__Bacteria.p__Proteobacteria.c__Betaproteobacteria.o__Burkholderiales.f__Alcaligenaceae.g__Parasutterella
+2022-11-14 20:49:16 INFO::Fitting model to feature number 23, k__Bacteria.p__Verrucomicrobia.c__Verrucomicrobiae.o__Verrucomicrobiales.f__Verrucomicrobiaceae.g__Akkermansia
+2022-11-14 20:49:16 INFO::Counting total values for each feature
+2022-11-14 20:49:16 INFO::Writing residuals to file Zymo_2.0/Wk8_2groups_stool_L6_Maaslin2_Diet/residuals.rds
+2022-11-14 20:49:16 INFO::Writing all results to file (ordered by increasing q-values): Zymo_2.0/Wk8_2groups_stool_L6_Maaslin2_Diet/all_results.tsv
+2022-11-14 20:49:16 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): Zymo_2.0/Wk8_2groups_stool_L6_Maaslin2_Diet/significant_results.tsv

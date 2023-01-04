@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "457af8d3b0e42e43",
+    "type": "split",
+    "children": [
+      {
+        "id": "3fe3159d8e3ab4ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "af795d3f2cd09ecc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "UCLA/Phenotypic Data.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "89613a366a08a7ff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "UCI/Beta Diversity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e83f4968abded0a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Zymo_2.0/Alpha Diversity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f79b940ca77bdea7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "UCI/Beta Diversity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1a2210ccb2afd350",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "UCI/Body Weight.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8f78e19976981756",
+    "type": "split",
+    "children": [
+      {
+        "id": "f77dbe25d63af68c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "48de6fbcbcc08716",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0f75412c1b6481ad",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "af4e5911df0fb91d",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7fed7881cbcb3680",
+    "type": "split",
+    "children": [
+      {
+        "id": "16f450173285766f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1d0b1ad17a8be89d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "UCI/Body Weight.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4e1e3346561e9b9e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "UCI/Body Weight.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3787230d97800dfa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "75df1fdfdb00ee7b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "UCI/Body Weight.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1a2210ccb2afd350",
+  "lastOpenFiles": [
+    "UCI/Alpha Diversity.md",
+    "Zymo_2.0/Beta Diversity.md",
+    "Zymo_2.0/Alpha Diversity, CD and BD.md",
+    "Zymo_2.0/Alpha Diversity.md",
+    "UCLA/Alpha Diversity.md",
+    "UCLA/Phenotypic Data.md",
+    "UCLA/Beta Diversity.md",
+    "Zymo_2.0/Body Weight.md",
+    "UCI/Body Weight.md",
+    "UCI/Beta Diversity.md"
+  ]
+}

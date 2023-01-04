@@ -145,10 +145,13 @@ run_Maaslin2_histo("UCLA/collapsed_ASV_tables/L6 - SI_luminal.csv","UCLA/startin
 phyla_colors <- c("#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3")
 names(phyla_colors)<-unique(data$Phylum)
 
-readr::write_rds(phyla_colors, "UCLA/phylacolors.RDS")
+#readr::write_rds(phyla_colors, "UCLA/phylacolors.RDS")
 
+phyla_colors <- readRDS("UCLA/phylacolors.RDS")
+phyla_colors <- c("Verrucomicrobia"="#F8766D", "Firmicutes"="purple",
+                  "Bacteroidetes"= "#00BF7D", "Proteobacteria"="#00B0F6", "Actinobacteria"="#E76BF3")
 # stool
-data<-read.table("UCLA/Stool_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
+data<-read.table("UCLA/Maaslin2/Stool_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
@@ -178,7 +181,7 @@ max(data$Relative_Abundance)
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+ucla_stool_DAT <- ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
                         limits=c(sqrt(0.0001),sqrt(0.3)),
@@ -188,13 +191,13 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
-  theme_cowplot(12) +
-  ggtitle("Stool: Genus ~ Sex + Diet") +
+  theme_cowplot(16) +
+  ggtitle("Stool") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+  theme(legend.position = "none") 
 
 # Cecum
-data<-read.table("UCLA/Cecum_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
+data<-read.table("UCLA/Maaslin2/Cecum_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
@@ -223,7 +226,7 @@ max(data$Relative_Abundance)
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+ucla_cecum_DAT <- ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
                         limits=c(sqrt(0.0001),sqrt(0.3)),
@@ -233,13 +236,13 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
-  theme_cowplot(12) +
-  ggtitle("Cecum: Genus ~ Sex + Diet") +
+  theme_cowplot(16) +
+  ggtitle("Colon") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+  theme(legend.position = "none") 
 
 # SI adherent
-data<-read.table("UCLA/SI_adherent_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
+data<-read.table("UCLA/Maaslin2/SI_adherent_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
@@ -275,7 +278,7 @@ max(data$Relative_Abundance)
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+ucla_simuc_DAT <- ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
                         limits=c(sqrt(0.0001),sqrt(0.3)),
@@ -285,14 +288,14 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
-  theme_cowplot(12) +
-  ggtitle("SI adherent: Genus ~ Sex + Diet") +
+  theme_cowplot(16) +
+  ggtitle("SI mucosal") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+  theme(legend.position = "none") 
 
 
 # SI luminal
-data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
+data<-read.table("UCLA/Maaslin2/SI_luminal_L6_Maaslin2_Sex_Diet/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Diet")
 data$Phylum <- gsub(".*p__","",data$feature)
@@ -328,7 +331,7 @@ max(data$Relative_Abundance)
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+ucla_silum_DAT <- ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
                         limits=c(sqrt(0.0001),sqrt(0.3)),
@@ -338,10 +341,10 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
-  theme_cowplot(12) +
-  ggtitle("SI luminal: Genus ~ Sex + Diet") +
+  theme_cowplot(16) +
+  ggtitle("SI luminal") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+  theme(legend.position = "none")
 
 ### Make a Dotplot: Sex, Diet, and Histo  ---
 
@@ -392,7 +395,7 @@ max(data$Relative_Abundance)
 y = tapply(data$coef, data$feature, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
 y = sort(y, FALSE)   #switch to TRUE to reverse direction
 data$feature= factor(as.character(data$feature), levels = names(y))
-ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
+ucla_cecum_histo_DAT <- ggplot(data, aes(x = coef, y = feature, color = Phylum)) + 
   geom_point(aes(size = sqrt(Relative_Abundance))) + 
   scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
                         limits=c(sqrt(0.0001),sqrt(0.3)),
@@ -402,11 +405,21 @@ ggplot(data, aes(x = coef, y = feature, color = Phylum)) +
   geom_vline(xintercept = 0) + 
   xlab(label="Log2 Fold Change")+
   ylab(label=NULL)+
-  theme_cowplot(12) +
-  ggtitle("Cecum: Genus ~ Sex + Histology") +
+  theme_cowplot(16) +
+  ggtitle("Colon: Histology-associated") +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) 
+  theme(legend.position = "right", legend.justification = "center")+
+  #theme(legend.position = "top", legend.justification = "center")+
+  guides(colour = guide_legend(nrow = 5),size=guide_legend(nrow=4))+
+  #theme(legend.position = "none")
+  theme(legend.background = element_rect(fill="lightblue", size=0.8, linetype="solid"),
+        legend.margin = margin(0, 11, 0, 1))  
 
+  legend <- cowplot::get_legend(ucla_cecum_histo_DAT)
+  dev.new(width=15, height=10)
+  grid::grid.newpage()
+  grid::grid.draw(legend)
+  
 data<-read.table("UCLA/Cecum_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Histology") # 2 taxa, Klebsiella and Ruminiclostridium_5
@@ -436,3 +449,8 @@ data <- data %>% filter(metadata=="Histology") # 1 taxa Catabacter
 data<-read.table("UCLA/SI_luminal_L6_Maaslin2_Histology/significant_results.tsv", header=TRUE)
 data <- data %>% filter(qval <0.05)
 data <- data %>% filter(metadata=="Histology") # 1 taxa Catabacter
+
+### Make Final Figure ---
+dev.new(width=15, height=10)
+plot_grid(ucla_silum_DAT, ucla_simuc_DAT, ucla_stool_DAT, ucla_cecum_DAT, ucla_cecum_histo_DAT, nrow=2,ncol=3,
+          labels=c("A","B","C","D","E",""))

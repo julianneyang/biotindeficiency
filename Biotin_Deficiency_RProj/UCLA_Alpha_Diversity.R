@@ -41,6 +41,8 @@ generate_UCLA_adiv_plots <- function(input_data, X, Y, min, max){
   
   #declare order of variables
   data$Diet <- factor(data$Group, levels=c("Control", "BD"))
+  data$Diet <- plyr::revalue(data$Diet, c("Control"="CD", "BD"="BD"))
+
   
   #graph plot
   ggplot(data=data,aes(x={{X}},y={{Y}}, fill=Diet)) + 
@@ -48,22 +50,22 @@ generate_UCLA_adiv_plots <- function(input_data, X, Y, min, max){
     scale_fill_viridis_d()+ 
     #geom_line(aes(group = MouseID,color=Genotype),size=1)+
     geom_point(size=2,position=position_jitter(width=0.25),alpha=1)+
-    theme_cowplot(12) +
+    theme_cowplot(16) +
     ylim(min,max) +
     theme(legend.position = "none")
   
 }
 
 ### Make and store plots ---
-compare <-c("Control","BD")
-stool_adiv_shannon <- generate_UCLA_adiv_plots(stool, Diet, shannon, 0, 5) +
+compare <-c("CD","BD")
+ucla_stool_adiv_shannon <- generate_UCLA_adiv_plots(stool, Diet, shannon, 0, 5) +
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
-stool_adiv_otus <- generate_UCLA_adiv_plots(stool, Diet, observed_otus, 0, 120) +
+ucla_stool_adiv_otus <- generate_UCLA_adiv_plots(stool, Diet, observed_otus, 0, 120) +
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
 
-cecum_adiv_shannon <- generate_UCLA_adiv_plots(cecum, Diet, shannon, 0, 5) +
+ucla_cecum_adiv_shannon <- generate_UCLA_adiv_plots(cecum, Diet, shannon, 0, 5) +
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
-cecum_adiv_otus <- generate_UCLA_adiv_plots(cecum, Diet, observed_otus, 0, 120) +
+ucla_cecum_adiv_otus <- generate_UCLA_adiv_plots(cecum, Diet, observed_otus, 0, 120) +
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
 
 SImuc_adiv_shannon <- generate_UCLA_adiv_plots(SI_adherent, Diet, shannon, 0, 5) +

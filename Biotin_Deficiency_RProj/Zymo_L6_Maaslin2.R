@@ -22,7 +22,7 @@ Relative_Abundance <- as.data.frame(t(Relative_Abundance))
 
 readr::write_rds(Relative_Abundance,"Zymo_2.0/collapsed_ASV_tables/Relative_Abundance-colon-L6.RDS")
 
-input_metadata <-read.delim("Zymo_2.0/starting_files/Metadata.tsv",sep="\t",header=TRUE, row.names=1) #mapping file
+input_metadata <-read.delim("Zymo_2.0/starting_files/Metadata_2groups.tsv",sep="\t",header=TRUE, row.names=1) #mapping file
 
 target <- colnames(df_input_data)
 input_metadata = input_metadata[match(target, row.names(input_metadata)),]
@@ -30,13 +30,13 @@ target == row.names(input_metadata)
 
 df_input_metadata<-input_metadata
 df_input_metadata$MouseID <- factor(df_input_metadata$MouseID)
-df_input_metadata$Diet <- factor(df_input_metadata$Diet, levels=c("Control","BD","BD_supp"))
+df_input_metadata$Diet <- factor(df_input_metadata$Diet, levels=c("CD","BD"))
 sapply(df_input_metadata,levels)
 
 ?Maaslin2
 fit_data = Maaslin2(input_data=df_input_data, 
                     input_metadata=df_input_metadata, 
-                    output = "Zymo_2.0/Colon_L6_Maaslin2_Diet", 
+                    output = "Zymo_2.0/2groups_Colon_L6_Maaslin2_Diet", 
                     fixed_effects = c("Diet"),normalization="TSS", 
                     min_prevalence = 0.273,
                     transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)

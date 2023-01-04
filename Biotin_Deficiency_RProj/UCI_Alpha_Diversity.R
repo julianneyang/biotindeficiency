@@ -52,17 +52,18 @@ generate_UCI_adiv_plots <- function(input_data, X, Y, min, max){
 
 ### Make and store plots ---
 compare <-c("WT","KO")
-tranversestool<- generate_UCI_adiv_plots(stool, Genotype, shannon, 0, 7) + facet_grid(~Timepoint) +
+uci_tranversestool<- generate_UCI_adiv_plots(stool, Genotype, shannon, 0, 8) + facet_grid(~Timepoint) +
   stat_compare_means(comparisons = compare,method="wilcox", vjust=0.3,label="p.signif",step.increase=0.05)
 longitudinalstool_lines <- generate_UCI_adiv_plots(stool, Timepoint, shannon, 0, 7) + facet_grid(~Genotype) 
 longitudinalstool <- generate_UCI_adiv_plots(stool, Timepoint, shannon, 0, 7) + facet_grid(~Genotype) 
-intestines <- generate_UCI_adiv_plots(intestine, Genotype,shannon,0,7) +facet_grid(~Timepoint)
+uci_intestines <- generate_UCI_adiv_plots(intestine, Genotype,shannon,0,8) +facet_grid(~Timepoint)
 
-otus_tranversestool<- generate_UCI_adiv_plots(stool, Genotype, observed_otus, 0, 400) +facet_grid(~Timepoint)
+uci_otus_tranversestool<- generate_UCI_adiv_plots(stool, Genotype, observed_otus, 0, 400) +facet_grid(~Timepoint)
 otus_longitudinalstool_lines <- generate_UCI_adiv_plots(stool, Timepoint, observed_otus, 0, 400) + facet_grid(~Genotype) 
 otus_longitudinalstool <- generate_UCI_adiv_plots(stool, Timepoint, observed_otus, 0, 400) + facet_grid(~Genotype) 
-otus_intestines <- generate_UCI_adiv_plots(intestine, Genotype,observed_otus,0,400) +facet_grid(~Timepoint)
+uci_otus_intestines <- generate_UCI_adiv_plots(intestine, Genotype,observed_otus,0,400) +facet_grid(~Timepoint)
 
+plot_grid
 ### Alpha Diversity Stats ---
 #stool
 stool$Genotype <-factor(stool$Genotype, levels=c("WT", "KO"))

@@ -40,6 +40,7 @@ generate_UCLA_cs_pcoA_plots <- function(ordination_file, metadata, title, colorv
   #declare factors
   data$Diet<-data$Group
   data$Diet<-factor(data$Diet, levels=c("Control", "BD"))
+  data$Diet <- plyr::revalue(data$Diet, c("Control"="CD","BD"="BD"))
   
   p<- ggplot(data, aes(x=PC1, y=PC2, colour={{colorvariable}})) + 
     geom_point(size=3) + 
@@ -47,7 +48,7 @@ generate_UCLA_cs_pcoA_plots <- function(ordination_file, metadata, title, colorv
     #scale_color_viridis_d()+
     xlab(str_PC1) +
     ylab(str_PC2) +
-    theme_cowplot(12)+
+    theme_cowplot(16)+
     theme(legend.position="top",legend.justification = "center") +
     #geom_text(nudge_y = .05) +
     #geom_line(aes(group = MouseID),color="darkgrey", arrow = arrow(type = "closed",length=unit(0.075, "inches")))+
@@ -57,11 +58,11 @@ generate_UCLA_cs_pcoA_plots <- function(ordination_file, metadata, title, colorv
     labs(title= paste0({{title}})) 
   p
 }
-diet_cols <- c("Control"="black", "BD"="red")
+diet_cols <- c("CD"="black", "BD"="red")
 ucla_stool_rpca<- generate_UCLA_cs_pcoA_plots("UCLA/beta_diversity/RPCA - Stool_Pellet.csv", "UCLA/starting_files/Metadata.tsv", "Stool", Diet,diet_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(plot.title = element_text(hjust = 0.5))
-ucla_cecum_rpca<- generate_UCLA_cs_pcoA_plots("UCLA/beta_diversity/RPCA - adherent_cecum.csv", "UCLA/starting_files/Metadata.tsv", "Cecum", Diet,diet_cols)+
+ucla_cecum_rpca<- generate_UCLA_cs_pcoA_plots("UCLA/beta_diversity/RPCA - adherent_cecum.csv", "UCLA/starting_files/Metadata.tsv", "Colon", Diet,diet_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(plot.title = element_text(hjust = 0.5))
 ucla_si_adherent_rpca<- generate_UCLA_cs_pcoA_plots("UCLA/beta_diversity/RPCA - SI_adherent.csv", "UCLA/starting_files/Metadata.tsv", "SI Mucosal", Diet,diet_cols)+
@@ -121,3 +122,17 @@ data.dist <- as.dist(as(data.dist, "matrix"))
 
 data.adonis=adonis(data.dist ~ Group, data=metadata, permutations=10000)
 data.adonis$aov.tab
+
+### Make Final Figure 
+top<-plot_grid(NULL,ucla_si_luminal_rpca, SIlum_adiv_shannon, SIlum_adiv_otus, nrow=1,
+          labels=c("A","E","F",""))
+second <- plot_grid(histo_plot,ucla_si_adherent_rpca, SImuc_adiv_shannon, SImuc_adiv_otus, nrow=1,
+          labels=c("B","G","H",""))
+dev.new(width=10,height=15)
+plot_grid(top, second, nrow=2)
+third<- plot_grid(calpro,ucla_cecum_rpca, ucla_cecum_adiv_shannon, ucla_cecum_adiv_otus, nrow=1,
+                  labels=c("C","I","J", ""))
+bottom<- plot_grid(ucla_bw,ucla_stool_rpca, ucla_stool_adiv_shannon, ucla_stool_adiv_otus,nrow=1,
+                   labels=c("D","K","L",""))
+dev.new(width=10,height=15)
+plot_grid(third, bottom, nrow=2)

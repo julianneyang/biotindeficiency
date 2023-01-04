@@ -48,7 +48,7 @@ generate_UCI_longitudinal_pcoA_plots <- function(ordination_file, metadata, titl
     #scale_color_viridis_d()+
     xlab(str_PC1) +
     ylab(str_PC2) +
-    theme_cowplot(12)+
+    theme_cowplot(16)+
     theme(legend.position="top",legend.justification = "center") +
     #geom_line(aes(group = MouseID),color="darkgrey", arrow = arrow(type = "closed",length=unit(0.075, "inches")))+
     #geom_point(aes(x = PC1, y = PC2, shape = Timepoint), size = 3) + 
@@ -61,10 +61,10 @@ generate_UCI_longitudinal_pcoA_plots <- function(ordination_file, metadata, titl
 genotype_cols<- c("KO" = "red", "WT" = "black")
 timepoint_cols<- c("Day0" = "red", "Day7 " = "black")
 
-stool_rpca<- generate_UCI_longitudinal_pcoA_plots("UCI/beta_diversity/stool_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Stool", Genotype,genotype_cols)+
+UCI_stool_rpca<- generate_UCI_longitudinal_pcoA_plots("UCI/beta_diversity/stool_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Stool", Genotype,genotype_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(plot.title = element_text(hjust = 0.5))
-stool_rpca
+UCI_stool_rpca
 
 stool_arrow_rpca<- generate_UCI_longitudinal_pcoA_plots("UCI/beta_diversity/stool_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Stool", Genotype,genotype_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
@@ -112,7 +112,7 @@ generate_UCI_cs_pcoA_plots <- function(ordination_file, metadata, title, colorva
     #scale_color_viridis_d()+
     xlab(str_PC1) +
     ylab(str_PC2) +
-    theme_cowplot(12)+
+    theme_cowplot(16)+
     theme(legend.position="top",legend.justification = "center") +
     #geom_line(aes(group = MouseID),color="darkgrey", arrow = arrow(type = "closed",length=unit(0.075, "inches")))+
     #geom_point(aes(x = PC1, y = PC2, shape = Timepoint), size = 3) + 
@@ -121,7 +121,7 @@ generate_UCI_cs_pcoA_plots <- function(ordination_file, metadata, title, colorva
     labs(title= paste0({{title}})) 
   p
 }
-intestine_rpca<- generate_UCI_cs_pcoA_plots("UCI/beta_diversity/intestine_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Intestine", Genotype,genotype_cols)+
+uci_intestine_rpca<- generate_UCI_cs_pcoA_plots("UCI/beta_diversity/intestine_pcoa.csv", "UCI/UCI_metadata_analysis_nofood.tsv", "Colon", Genotype,genotype_cols)+
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(plot.title = element_text(hjust = 0.5))
 

@@ -49,3 +49,62 @@ CollectionWeek12  27.08658  2.214708 31 12.23032  0.0000
 DietBD            -7.01331  3.828511  9 -1.83186  0.1002
 DietBD_supp       -3.76575  3.807957  9 -0.98892  0.3485
 ```
+
+```R
+Linear mixed-effects model fit by REML
+ Data: data 
+       AIC      BIC    logLik
+  292.5858 304.5808 -139.2929
+
+Random effects:
+ Formula: ~1 | MouseID
+        (Intercept) Residual
+StdDev:    4.652175 5.277843
+
+Fixed effects: Weight_Percent_of_Baseline ~ Collection + Diet 
+                     Value Std.Error DF  t-value p-value
+(Intercept)      101.70340  2.310381 31 44.02019   0.000
+CollectionWeek4   20.71928  2.214488 31  9.35624   0.000
+CollectionWeek8   26.33333  2.154671 31 12.22151   0.000
+CollectionWeek12  27.08772  2.215100 31 12.22867   0.000
+DietBD            -5.11019  3.304082 10 -1.54663   0.153
+ Correlation: 
+                 (Intr) CllcW4 CllcW8 CllW12
+CollectionWeek4  -0.447                     
+CollectionWeek8  -0.466  0.486              
+CollectionWeek12 -0.467  0.472  0.486       
+DietBD           -0.477 -0.014  0.000  0.027
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-2.27179784 -0.66955139 -0.02807639  0.50732261  1.91240318 
+
+Number of Observations: 46
+Number of Groups: 12 
+```
+
+```R
+> output <- lme(fixed= Weight_Percent_of_Baseline ~ Collection*Diet, random = ~1|MouseID, data=data)
+> summary(output)
+Linear mixed-effects model fit by REML
+ Data: data 
+       AIC      BIC    logLik
+  267.2338 283.6097 -123.6169
+
+Random effects:
+ Formula: ~1 | MouseID
+        (Intercept) Residual
+StdDev:    4.787811  4.13782
+
+Fixed effects: Weight_Percent_of_Baseline ~ Collection * Diet 
+                            Value Std.Error DF  t-value p-value
+(Intercept)             100.00000  2.237317 28 44.69640  0.0000
+CollectionWeek4          21.02883  2.160493 28  9.73335  0.0000
+CollectionWeek8          27.87500  2.068910 28 13.47328  0.0000
+CollectionWeek12         31.87500  2.068910 28 15.40666  0.0000
+DietBD                    0.00000  3.875146 10  0.00000  1.0000
+CollectionWeek4:DietBD   -1.27883  3.637101 28 -0.35161  0.7278
+CollectionWeek8:DietBD   -4.62500  3.583457 28 -1.29065  0.2074
+CollectionWeek12:DietBD -16.85248  3.827369 28 -4.40315  0.0001
+ Correlation: 
+```
